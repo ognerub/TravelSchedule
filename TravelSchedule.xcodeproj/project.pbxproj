@@ -21,13 +21,13 @@
 		CE9E64592B9E0ECB00A2134A /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = CE9E64582B9E0ECB00A2134A /* openapi.yaml */; };
 		CE9E645E2B9E0F7C00A2134A /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = CE9E645D2B9E0F7B00A2134A /* openapi-generator-config.yaml */; };
 		CE9E64612B9E0FE100A2134A /* NearestStationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */; };
-		CE9E64632B9E198300A2134A /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64622B9E198300A2134A /* ApiResponse.swift */; };
-		CE9E64682B9E1F0800A2134A /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64672B9E1F0800A2134A /* URLSession.swift */; };
-		CE9E646B2B9E1F3300A2134A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E646A2B9E1F3300A2134A /* NetworkError.swift */; };
-		CE9E646D2B9E1F8D00A2134A /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E646C2B9E1F8D00A2134A /* URLRequest.swift */; };
+		CE9E64632B9E198300A2134A /* NearestStationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */; };
 		CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E646E2B9E1FE100A2134A /* String+Extensions.swift */; };
-		CE9E64712B9E202800A2134A /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64702B9E202800A2134A /* TransportService.swift */; };
-		CE9E64732B9E222200A2134A /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64722B9E222200A2134A /* NetworkConstants.swift */; };
+		CE9E64782B9E34C400A2134A /* PointToPointResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */; };
+		CE9E647A2B9E366D00A2134A /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64792B9E366D00A2134A /* Pagination.swift */; };
+		CE9E647C2B9E36B100A2134A /* JsonNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E647B2B9E36B100A2134A /* JsonNull.swift */; };
+		CE9E647E2B9E372F00A2134A /* PointToPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E647D2B9E372F00A2134A /* PointToPointService.swift */; };
+		CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +45,13 @@
 		CE9E64582B9E0ECB00A2134A /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = openapi.yaml; path = TravelSchedule/Resources/openapi.yaml; sourceTree = SOURCE_ROOT; };
 		CE9E645D2B9E0F7B00A2134A /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationsService.swift; sourceTree = "<group>"; };
-		CE9E64622B9E198300A2134A /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
-		CE9E64672B9E1F0800A2134A /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
-		CE9E646A2B9E1F3300A2134A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		CE9E646C2B9E1F8D00A2134A /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationsResponse.swift; sourceTree = "<group>"; };
 		CE9E646E2B9E1FE100A2134A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		CE9E64702B9E202800A2134A /* TransportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportService.swift; sourceTree = "<group>"; };
-		CE9E64722B9E222200A2134A /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointToPointResponse.swift; sourceTree = "<group>"; };
+		CE9E64792B9E366D00A2134A /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		CE9E647B2B9E36B100A2134A /* JsonNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonNull.swift; sourceTree = "<group>"; };
+		CE9E647D2B9E372F00A2134A /* PointToPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointToPointService.swift; sourceTree = "<group>"; };
+		CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +132,9 @@
 		CE9E645F2B9E0FD000A2134A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */,
 				CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */,
-				CE9E64672B9E1F0800A2134A /* URLSession.swift */,
-				CE9E646C2B9E1F8D00A2134A /* URLRequest.swift */,
-				CE9E64702B9E202800A2134A /* TransportService.swift */,
-				CE9E64722B9E222200A2134A /* NetworkConstants.swift */,
+				CE9E647D2B9E372F00A2134A /* PointToPointService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -144,8 +142,10 @@
 		CE9E64642B9E19A800A2134A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE9E64622B9E198300A2134A /* ApiResponse.swift */,
-				CE9E646A2B9E1F3300A2134A /* NetworkError.swift */,
+				CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */,
+				CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */,
+				CE9E64792B9E366D00A2134A /* Pagination.swift */,
+				CE9E647B2B9E36B100A2134A /* JsonNull.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,19 +234,19 @@
 			files = (
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
 				CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */,
+				CE9E64782B9E34C400A2134A /* PointToPointResponse.swift in Sources */,
 				8499812D2B9C93BD006828B4 /* UIColor+Extensions.swift in Sources */,
-				CE9E64682B9E1F0800A2134A /* URLSession.swift in Sources */,
-				CE9E646D2B9E1F8D00A2134A /* URLRequest.swift in Sources */,
 				849981302B9C95B2006828B4 /* SettingsViewController.swift in Sources */,
 				849981292B9C9184006828B4 /* TabBarController.swift in Sources */,
-				CE9E64632B9E198300A2134A /* ApiResponse.swift in Sources */,
+				CE9E64632B9E198300A2134A /* NearestStationsResponse.swift in Sources */,
 				8499812B2B9C93AC006828B4 /* UIImage+Extensions.swift in Sources */,
 				849981152B9C8FAA006828B4 /* AppDelegate.swift in Sources */,
 				849981172B9C8FAA006828B4 /* SceneDelegate.swift in Sources */,
-				CE9E646B2B9E1F3300A2134A /* NetworkError.swift in Sources */,
-				CE9E64732B9E222200A2134A /* NetworkConstants.swift in Sources */,
 				CE9E64612B9E0FE100A2134A /* NearestStationsService.swift in Sources */,
-				CE9E64712B9E202800A2134A /* TransportService.swift in Sources */,
+				CE9E647C2B9E36B100A2134A /* JsonNull.swift in Sources */,
+				CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */,
+				CE9E647E2B9E372F00A2134A /* PointToPointService.swift in Sources */,
+				CE9E647A2B9E366D00A2134A /* Pagination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

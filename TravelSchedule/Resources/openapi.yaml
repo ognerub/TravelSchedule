@@ -8,6 +8,9 @@ servers:
 tags:
 - name: Список ближайших станций
   description: Список ближайших станций
+- name: Расписание рейсов между станциями
+  description: Расписание рейсов между станциями
+# MARK: Nearest Stations
 paths:
   /v3.0/nearest_stations/:
     get:
@@ -59,8 +62,55 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Stations'
+# MARK: Point to Point
+  /v3.0/search/:
+    get:
+      tags:
+      - getPointToPoint
+      summary: Расписание рейсов между станциями
+      operationId: getPointToPoint
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: Код или название станции отправления
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: Код или название станции прибытия
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Страница
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: query
+          description: Дата в формате YYYY-MM-DD
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointToPoint'
+# MARK: - Components
 components:
   schemas:
+    # MARK: Stations
     Stations:
       type: object
       properties:
@@ -115,3 +165,36 @@ components:
           type: string
         touch_url:
           type: string
+    # MARK: Point to Point
+    PointToPoint:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+            limit:
+              type: integer
+            offset:
+              type: integer
+        schedules:
+          type: array
+          items:
+            type: object
+            properties:
+              arrival:
+                type: string
+                format: date-time
+              departure:
+                type: string
+                format: date-time
+              thread:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  title:
+                    type: string
+                  number:
+                    type: string

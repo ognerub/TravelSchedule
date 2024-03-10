@@ -9,34 +9,57 @@ import UIKit
 import OpenAPIURLSession
 
 class SheduleViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .whiteDay
-        stations()
+        //stations()
+        pointToPoint()
     }
     
-    func stations() {
-        
+//    private func stations() {
+//        guard let client = createClient() else { return }
+//        let service = NearestStationsService(
+//            client: client,
+//            apikey: NetworkConstants.apiKey
+//        )
+//        Task {
+//            let stations = try await service.getNearestStations(
+//                lat: 59.864177,
+//                lng: 30.319163,
+//                distance: 50
+//            )
+//            print(stations)
+//        }
+//    }
+    
+    private func pointToPoint() {
+        guard let client = createClient() else { return }
+        let service = PointToPointService(
+            client: client,
+            apikey: NetworkConstants.apiKey
+        )
+        Task {
+            let pointToPoint = try await service.getPointToPoint(
+                from: "c146",
+                to: "c213",
+                page: "1",
+                date: "2024-03-11"
+            )
+            print(pointToPoint)
+        }
+    }
+    
+    private func createClient() -> Client?  {
         guard let url = try? Servers.server1() else {
             print("error url")
-            return
+            return nil
         }
-        
         let client = Client(
             serverURL: url,
             transport: URLSessionTransport()
         )
-
-        let service = NearestStationsService(
-            client: client,
-            apikey: "341101e3-a890-4cf6-805a-8a77c42a6c12"
-        )
-
-        Task {
-            let stations = try await service.getNearestStations(lat: 59.864177, lng: 30.319163, distance: 50)
-            print(stations)
-        }
+        return client
     }
 }
 
