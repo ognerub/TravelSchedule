@@ -41,7 +41,11 @@ final class TabBarController: UITabBarController {
         tabBar.backgroundColor = UIColor.whiteDay
         tabBar.tintColor = UIColor.blackDay
         tabBar.unselectedItemTintColor = UIColor.greyUniversal
-        addTopBorder(for: tabBar, with: .greyUniversal, andWidth: 1)
+        addTopBorder(
+            for: tabBar,
+            with: .greyUniversal,
+            andWidth: 1
+        )
     }
     
     private func addTopBorder(for view: UIView, with color: UIColor?, andWidth borderWidth: CGFloat) {
