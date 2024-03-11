@@ -21,13 +21,11 @@
 		CE9E64592B9E0ECB00A2134A /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = CE9E64582B9E0ECB00A2134A /* openapi.yaml */; };
 		CE9E645E2B9E0F7C00A2134A /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = CE9E645D2B9E0F7B00A2134A /* openapi-generator-config.yaml */; };
 		CE9E64612B9E0FE100A2134A /* NearestStationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */; };
-		CE9E64632B9E198300A2134A /* NearestStationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */; };
 		CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E646E2B9E1FE100A2134A /* String+Extensions.swift */; };
-		CE9E64782B9E34C400A2134A /* PointToPointResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */; };
-		CE9E647A2B9E366D00A2134A /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E64792B9E366D00A2134A /* Pagination.swift */; };
-		CE9E647C2B9E36B100A2134A /* JsonNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E647B2B9E36B100A2134A /* JsonNull.swift */; };
 		CE9E647E2B9E372F00A2134A /* PointToPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E647D2B9E372F00A2134A /* PointToPointService.swift */; };
+		CECCF5A62B9EF95400D9067C /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF5A52B9EF95400D9067C /* ServiceFactory.swift */; };
 		CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */; };
+		CEFBA3022B9EE90C00269012 /* ScheduleOnStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA3012B9EE90C00269012 /* ScheduleOnStation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,16 +40,14 @@
 		8499812A2B9C93AC006828B4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		8499812C2B9C93BD006828B4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8499812F2B9C95B2006828B4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		CE9E64582B9E0ECB00A2134A /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = openapi.yaml; path = TravelSchedule/Resources/openapi.yaml; sourceTree = SOURCE_ROOT; };
+		CE9E64582B9E0ECB00A2134A /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = openapi.yaml; path = TravelSchedule/Resources/openapi.yaml; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.yaml; };
 		CE9E645D2B9E0F7B00A2134A /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationsService.swift; sourceTree = "<group>"; };
-		CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationsResponse.swift; sourceTree = "<group>"; };
 		CE9E646E2B9E1FE100A2134A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointToPointResponse.swift; sourceTree = "<group>"; };
-		CE9E64792B9E366D00A2134A /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
-		CE9E647B2B9E36B100A2134A /* JsonNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonNull.swift; sourceTree = "<group>"; };
 		CE9E647D2B9E372F00A2134A /* PointToPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointToPointService.swift; sourceTree = "<group>"; };
+		CECCF5A52B9EF95400D9067C /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		CEFBA3012B9EE90C00269012 /* ScheduleOnStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleOnStation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +85,6 @@
 				8499811F2B9C8FB2006828B4 /* LaunchScreen.storyboard */,
 				849981142B9C8FAA006828B4 /* AppDelegate.swift */,
 				849981162B9C8FAA006828B4 /* SceneDelegate.swift */,
-				CE9E64642B9E19A800A2134A /* Models */,
 				CE9E645F2B9E0FD000A2134A /* Services */,
 				849981312B9C97C5006828B4 /* Scenes */,
 				8499812E2B9C93C1006828B4 /* Extensions */,
@@ -133,21 +128,12 @@
 			isa = PBXGroup;
 			children = (
 				CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */,
+				CECCF5A52B9EF95400D9067C /* ServiceFactory.swift */,
 				CE9E64602B9E0FE100A2134A /* NearestStationsService.swift */,
 				CE9E647D2B9E372F00A2134A /* PointToPointService.swift */,
+				CEFBA3012B9EE90C00269012 /* ScheduleOnStation.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		CE9E64642B9E19A800A2134A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				CE9E64622B9E198300A2134A /* NearestStationsResponse.swift */,
-				CE9E64772B9E34C400A2134A /* PointToPointResponse.swift */,
-				CE9E64792B9E366D00A2134A /* Pagination.swift */,
-				CE9E647B2B9E36B100A2134A /* JsonNull.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,19 +220,17 @@
 			files = (
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
 				CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */,
-				CE9E64782B9E34C400A2134A /* PointToPointResponse.swift in Sources */,
 				8499812D2B9C93BD006828B4 /* UIColor+Extensions.swift in Sources */,
 				849981302B9C95B2006828B4 /* SettingsViewController.swift in Sources */,
 				849981292B9C9184006828B4 /* TabBarController.swift in Sources */,
-				CE9E64632B9E198300A2134A /* NearestStationsResponse.swift in Sources */,
+				CECCF5A62B9EF95400D9067C /* ServiceFactory.swift in Sources */,
 				8499812B2B9C93AC006828B4 /* UIImage+Extensions.swift in Sources */,
 				849981152B9C8FAA006828B4 /* AppDelegate.swift in Sources */,
 				849981172B9C8FAA006828B4 /* SceneDelegate.swift in Sources */,
 				CE9E64612B9E0FE100A2134A /* NearestStationsService.swift in Sources */,
-				CE9E647C2B9E36B100A2134A /* JsonNull.swift in Sources */,
 				CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */,
 				CE9E647E2B9E372F00A2134A /* PointToPointService.swift in Sources */,
-				CE9E647A2B9E366D00A2134A /* Pagination.swift in Sources */,
+				CEFBA3022B9EE90C00269012 /* ScheduleOnStation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

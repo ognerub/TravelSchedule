@@ -10,8 +10,10 @@ tags:
   description: Список ближайших станций
 - name: Расписание рейсов между станциями
   description: Расписание рейсов между станциями
-# MARK: Nearest Stations
+- name: Расписание рейсов по станции
+  description: Расписание рейсов по станции
 paths:
+# MARK: Nearest Stations
   /v3.0/nearest_stations/:
     get:
       tags:
@@ -107,6 +109,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PointToPoint'
+# MARK: ScheduleOnStation
+  /v3.0/schedule/:
+    get:
+      tags:
+      - getScheduleOnStation
+      summary: Расписание рейсов по станции
+      operationId: getScheduleOnStation
+      parameters:
+        - name: apikey
+          in: query
+          description: Your Yandex API key
+          required: true
+          schema:
+            type: string
+        - name: station
+          in: query
+          description: Station code
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: query
+          description: Date in YYYY-MM-DD format
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleOnStation'
 # MARK: - Components
 components:
   schemas:
@@ -198,3 +234,161 @@ components:
                     type: string
                   number:
                     type: string
+    # MARK: ScheduleOnStation
+    ScheduleOnStation:
+      type: object
+      properties:
+        date:
+          type: string
+        pagination:
+          $ref: '#/components/schemas/PaginationScheduleOnStation'
+        station:
+          $ref: '#/components/schemas/StationScheduleOnStation'
+        schedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleScheduleOnStation'
+        interval_schedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntervalSchedule'
+        schedule_direction:
+          $ref: '#/components/schemas/Direction'
+        directions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Direction'
+    PaginationScheduleOnStation:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    StationScheduleOnStation:
+      type: object
+      properties:
+        code:
+          type: string
+        title:
+          type: string
+        stationType:
+          type: string
+        popularTitle:
+          type: string
+        shortTitle:
+          type: string
+        transportType:
+          type: string
+        type:
+          type: string
+    ScheduleScheduleOnStation:
+      type: object
+      properties:
+        exceptDays:
+          type: string
+        arrival:
+          type: string
+          format: date-time
+        thread:
+          $ref: '#/components/schemas/Thread'
+        isFuzzy:
+          type: boolean
+        days:
+          type: string
+        stops:
+          type: string
+        departure:
+          type: string
+          format: date-time
+        terminal:
+          type: string  # Added the missing type
+        platform:
+          type: string
+    IntervalSchedule:
+      type: object
+      properties:
+        exceptDays:
+          type: string  # Corrected the type
+        thread:
+          $ref: '#/components/schemas/Thread'
+        isFuzzy:
+          type: boolean
+        days:
+          type: string
+        stops:
+          type: string
+        terminal:
+          type: string
+        platform:
+          type: string
+    Thread:
+      type: object
+      properties:
+        uid:
+          type: string
+        title:
+          type: string
+        interval:
+          $ref: '#/components/schemas/Interval'
+        number:
+          type: string
+        shortTitle:
+          type: string
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        transportType:
+          type: string
+        vehicle:
+          type: string
+        transportSubtype:
+          $ref: '#/components/schemas/TransportSubtype'
+        expressType:
+          type: string
+    Carrier:
+      type: object
+      properties:
+        code:
+          type: integer
+        codes:
+          $ref: '#/components/schemas/Codes'
+        title:
+          type: string
+    Codes:
+      type: object
+      properties:
+        icao:
+          type: string
+        sirena:
+          type: string
+        iata:
+          type: string
+    Interval:
+      type: object
+      properties:
+        density:
+          type: string
+        endTime:
+          type: string
+          format: date-time
+        beginTime:
+          type: string
+          format: date-time
+    TransportSubtype:
+      type: object
+      properties:
+        color:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+    Direction:
+      type: object
+      properties:
+        code:
+          type: string
+        title:
+          type: string
