@@ -14,8 +14,10 @@ tags:
   description: Расписание рейсов по станции
 - name: Список станций следования
   description: Список станций следования
+- name: Ближайщий населенный пункт
+  description: Ближайщий населенный пункт
 paths:
-# MARK: Nearest Stations
+# MARK: NearestStations
   /v3.0/nearest_stations/:
     get:
       tags:
@@ -66,7 +68,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Stations'
-# MARK: Point to Point
+# MARK: PointToPoint
   /v3.0/search/:
     get:
       tags:
@@ -190,10 +192,61 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ThreadInformation'
+# MARK: NearestSettlement
+  /v3.0/nearest_settlement/:
+    get:
+      tags:
+        - getNearestSettlement
+      summary: Получение ближайшего поселения
+      operationId: getNearestSettlement
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: Response format
+          required: true
+          schema:
+            type: string
+        - name: lat
+          in: query
+          description: Latitude
+          required: true
+          schema:
+            type: number
+        - name: lng
+          in: query
+          description: Longitude
+          required: true
+          schema:
+            type: number
+        - name: distance
+          in: query
+          description: Distance
+          required: true
+          schema:
+            type: number
+        - name: lang
+          in: query
+          description: Language of the response
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearestSettlement'
 # MARK: - Components
 components:
   schemas:
-    # MARK: Stations
+# MARK: Stations
     Stations:
       type: object
       properties:
@@ -248,7 +301,7 @@ components:
           type: string
         touch_url:
           type: string
-    # MARK: Point to Point
+# MARK: PointToPoint
     PointToPoint:
       type: object
       properties:
@@ -281,7 +334,7 @@ components:
                     type: string
                   number:
                     type: string
-    # MARK: ScheduleOnStation
+# MARK: ScheduleOnStation
     ScheduleOnStation:
       type: object
       properties:
@@ -439,7 +492,7 @@ components:
           type: string
         title:
           type: string
-    # MARK: ThreadInformation
+# MARK: ThreadInformation
     ThreadInformation:
       type: object
       properties:
@@ -450,7 +503,7 @@ components:
         short_title:
           type: string
         express_type:
-          type: null
+          type: string
         transport_type:
           type: string
         carrier:
@@ -464,27 +517,27 @@ components:
               type: object
               properties:
                 sirena:
-                  type: null
+                  type: string
                 iata:
-                  type: null
+                  type: string
                 icao:
-                  type: null
+                  type: string
             offices:
               type: array
               items: null
         uid:
           type: string
         vehicle:
-          type: null
+          type: string
         transport_subtype:
           type: object
           properties:
             title:
-              type: null
+              type: string
             code:
-              type: null
+              type: string
             color:
-              type: null
+              type: string
         days:
           type: string
         except_days:
@@ -502,9 +555,9 @@ components:
                   title:
                     type: string
                   short_title:
-                    type: null
+                    type: string
                   popular_title:
-                    type: null
+                    type: string
                   code:
                     type: string
                   codes:
@@ -525,24 +578,44 @@ components:
               departure:
                 type: string
               arrival:
-                type: null
+                type: string
               duration:
-                type: number
+                type: integer
               stop_time:
-                type: null
+                type: integer
               platform:
                 type: string
               terminal:
-                type: null
+                type: string
         from:
-          type: null
+          type: string
         to:
-          type: null
+          type: string
         start_date:
           type: string
         arrival_date:
-          type: null
+          type: string
         departure_date:
-          type: null
+          type: string
         start_time:
           type: string
+# MARK: NearestSettlement
+    NearestSettlement:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        short_title:
+          type: string
+        popular_title:
+          type: string
+        code:
+          type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        distance:
+          type: number

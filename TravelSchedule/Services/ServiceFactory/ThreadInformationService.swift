@@ -27,15 +27,13 @@ final class ThreadInformationService: ThreadInformationServiceProtocol, APIServi
     
     func getThreadInformation(uid: String, show: String) async throws -> ThreadInformation {
         let response = try await client.getThreadInformation(query: .init(
-                apikey: apikey,
-                format: "json",
-                uid: uid,
-                lang: "ru_RU",
-                show_systems: show
+            apikey: apikey,
+            format: "json",
+            uid: uid,
+            lang: "ru_RU",
+            show_systems: show
         ))
         return try response.ok.body.json
     }
-    
-    
 }
 

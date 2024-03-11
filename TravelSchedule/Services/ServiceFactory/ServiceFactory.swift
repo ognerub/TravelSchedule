@@ -13,6 +13,7 @@ enum ServiceType {
     case pointToPoint
     case scheduleOnStation
     case threadInformation
+    case nearestSettlement
 }
 
 protocol APIService {
@@ -32,6 +33,8 @@ class ServiceFactory {
             return ScheduleOnStationService(client: client, apikey: apikey)
         case .threadInformation:
             return ThreadInformationService(client: client, apikey: apikey)
+        case .nearestSettlement:
+            return NearestSettlementService(client: client, apikey: apikey)
         }
     }
 }
