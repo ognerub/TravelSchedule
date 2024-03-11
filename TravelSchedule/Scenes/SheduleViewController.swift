@@ -10,13 +10,15 @@ import OpenAPIURLSession
 
 final class SheduleViewController: UIViewController {
     
+    private var uiBlockingProgressHUD: UIBlockingProgressHUDProtocol?
+    
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textColor = .blackDay
         label.frame = CGRect(x: 100, y: 100, width: 200, height: 400)
         label.numberOfLines = 999
         label.lineBreakMode = .byWordWrapping
-        label.text = "label"
+        label.text = "Loading"
         return label
     }()
     
@@ -24,9 +26,26 @@ final class SheduleViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .whiteDay
         view.addSubview(label)
-        //nearestStations()
-        //pointToPoint()
-        scheduleOnStation()
+        uiBlockingProgressHUD = UIBlockingProgressHUD(viewController: self)
+        // Select service
+        let service: Int = 4
+        uiBlockingProgressHUD?.showCustom()
+        switch service {
+        case 1:
+            print("nearest")
+            nearestStations()
+        case 2:
+            print("point")
+            pointToPoint()
+        case 3:
+            print("schedule")
+            scheduleOnStation()
+        case 4:
+            print("thread")
+            threadInformation()
+        default:
+            print("Wrong service number")
+        }
     }
 
     private func nearestStations() {
@@ -38,6 +57,7 @@ final class SheduleViewController: UIViewController {
                 distance: 50
             )
             label.text = "\(stations)"
+            uiBlockingProgressHUD?.dismissCustom()
         }
     }
     
@@ -51,14 +71,28 @@ final class SheduleViewController: UIViewController {
                 date: "2024-03-11"
             )
             label.text = "\(pointToPoint)"
+            uiBlockingProgressHUD?.dismissCustom()
         }
     }
     
     private func scheduleOnStation() {
         guard let service = create(service: .scheduleOnStation) as? ScheduleOnStationService else { return }
         Task {
-            let schedule = try await service.getScheduleOnStation(station: "s9600213", date: "2024-03-12")
+            let schedule = try await service.getScheduleOnStation(
+                station: "s9600213",
+                date: "2024-03-12"
+            )
             label.text = "\(schedule)"
+            uiBlockingProgressHUD?.dismissCustom()
+        }
+    }
+    
+    private func threadInformation() {
+        guard let service = create(service: .threadInformation) as? ThreadInformationService else { return }
+        Task {
+            let threadInfo = try await service.getThreadInformation(uid: "068S_10_2", show: "all")
+            label.text = "\(threadInfo)"
+            uiBlockingProgressHUD?.dismissCustom()
         }
     }
 }

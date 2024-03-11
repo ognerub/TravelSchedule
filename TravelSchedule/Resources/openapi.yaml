@@ -12,6 +12,8 @@ tags:
   description: Расписание рейсов между станциями
 - name: Расписание рейсов по станции
   description: Расписание рейсов по станции
+- name: Список станций следования
+  description: Список станций следования
 paths:
 # MARK: Nearest Stations
   /v3.0/nearest_stations/:
@@ -143,6 +145,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScheduleOnStation'
+# MARK: ThreadInformation
+  /v3.0/thread/:
+    get:
+      tags:
+        - getThreadInformation
+      summary: Список ближайших станций
+      operationId: getThreadInformation
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: Response format
+          required: true
+          schema:
+            type: string
+        - name: uid
+          in: query
+          description: Unique identifier for the thread
+          required: true
+          schema:
+            type: string
+        - name: lang
+          in: query
+          description: Language of the response
+          required: true
+          schema:
+            type: string
+        - name: show_systems
+          in: query
+          description: Show systems
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadInformation'
 # MARK: - Components
 components:
   schemas:
@@ -304,14 +351,14 @@ components:
           type: string
           format: date-time
         terminal:
-          type: string  # Added the missing type
+          type: string
         platform:
           type: string
     IntervalSchedule:
       type: object
       properties:
         exceptDays:
-          type: string  # Corrected the type
+          type: string
         thread:
           $ref: '#/components/schemas/Thread'
         isFuzzy:
@@ -391,4 +438,111 @@ components:
         code:
           type: string
         title:
+          type: string
+    # MARK: ThreadInformation
+    ThreadInformation:
+      type: object
+      properties:
+        number:
+          type: string
+        title:
+          type: string
+        short_title:
+          type: string
+        express_type:
+          type: null
+        transport_type:
+          type: string
+        carrier:
+          type: object
+          properties:
+            code:
+              type: integer
+            title:
+              type: string
+            codes:
+              type: object
+              properties:
+                sirena:
+                  type: null
+                iata:
+                  type: null
+                icao:
+                  type: null
+            offices:
+              type: array
+              items: null
+        uid:
+          type: string
+        vehicle:
+          type: null
+        transport_subtype:
+          type: object
+          properties:
+            title:
+              type: null
+            code:
+              type: null
+            color:
+              type: null
+        days:
+          type: string
+        except_days:
+          type: string
+        stops:
+          type: array
+          items:
+            type: object
+            properties:
+              station:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  short_title:
+                    type: null
+                  popular_title:
+                    type: null
+                  code:
+                    type: string
+                  codes:
+                    type: object
+                    properties:
+                      yandex:
+                        type: string
+                      esr:
+                        type: string
+                      express:
+                        type: string
+                  station_type:
+                    type: string
+                  station_type_name:
+                    type: string
+                  transport_type:
+                    type: string
+              departure:
+                type: string
+              arrival:
+                type: null
+              duration:
+                type: number
+              stop_time:
+                type: null
+              platform:
+                type: string
+              terminal:
+                type: null
+        from:
+          type: null
+        to:
+          type: null
+        start_date:
+          type: string
+        arrival_date:
+          type: null
+        departure_date:
+          type: null
+        start_time:
           type: string

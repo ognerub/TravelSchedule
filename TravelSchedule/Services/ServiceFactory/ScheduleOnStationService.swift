@@ -1,5 +1,5 @@
 //
-//  ScheduleOnStation.swift
+//  ScheduleOnStationService.swift
 //  TravelSchedule
 //
 //  Created by Ognerub on 11.03.2024.
@@ -29,7 +29,8 @@ final class ScheduleOnStationService: ScheduleOnStationProtocol, APIService {
         let response = try await client.getScheduleOnStation(query: .init(
             apikey: apikey,
             station: station,
-            date: date) )
+            date: date
+        ))
         return try response.ok.body.json
     }
 }

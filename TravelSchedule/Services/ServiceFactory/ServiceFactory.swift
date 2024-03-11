@@ -12,6 +12,7 @@ enum ServiceType {
     case nearestStations
     case pointToPoint
     case scheduleOnStation
+    case threadInformation
 }
 
 protocol APIService {
@@ -21,13 +22,16 @@ protocol APIService {
 
 class ServiceFactory {
     static func createService(type: ServiceType, client: Client) -> APIService {
+        let apikey = NetworkConstants.apiKey
         switch type {
         case .nearestStations:
-            return NearestStationsService(client: client, apikey: NetworkConstants.apiKey)
+            return NearestStationsService(client: client, apikey: apikey)
         case .pointToPoint:
-            return PointToPointService(client: client, apikey: NetworkConstants.apiKey)
+            return PointToPointService(client: client, apikey: apikey)
         case .scheduleOnStation:
-            return ScheduleOnStationService(client: client, apikey: NetworkConstants.apiKey)
+            return ScheduleOnStationService(client: client, apikey: apikey)
+        case .threadInformation:
+            return ThreadInformationService(client: client, apikey: apikey)
         }
     }
 }
