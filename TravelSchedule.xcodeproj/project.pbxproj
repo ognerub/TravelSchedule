@@ -27,6 +27,7 @@
 		CECCF5A82B9F113400D9067C /* ThreadInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF5A72B9F113400D9067C /* ThreadInformationService.swift */; };
 		CECCF5B32B9F3F3A00D9067C /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF5B22B9F3F3A00D9067C /* UIBlockingProgressHUD.swift */; };
 		CECCF5B62B9FA65300D9067C /* NearestSettlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF5B52B9FA65300D9067C /* NearestSettlement.swift */; };
+		CECCF5B92BA033B700D9067C /* CarriersInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF5B82BA033B700D9067C /* CarriersInformationService.swift */; };
 		CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */; };
 		CEFBA3022B9EE90C00269012 /* ScheduleOnStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA3012B9EE90C00269012 /* ScheduleOnStationService.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		CECCF5A72B9F113400D9067C /* ThreadInformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadInformationService.swift; sourceTree = "<group>"; };
 		CECCF5B22B9F3F3A00D9067C /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		CECCF5B52B9FA65300D9067C /* NearestSettlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestSettlement.swift; sourceTree = "<group>"; };
+		CECCF5B82BA033B700D9067C /* CarriersInformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarriersInformationService.swift; sourceTree = "<group>"; };
 		CEFBA2FE2B9E544D00269012 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		CEFBA3012B9EE90C00269012 /* ScheduleOnStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleOnStationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				CEFBA3012B9EE90C00269012 /* ScheduleOnStationService.swift */,
 				CECCF5A72B9F113400D9067C /* ThreadInformationService.swift */,
 				CECCF5B52B9FA65300D9067C /* NearestSettlement.swift */,
+				CECCF5B82BA033B700D9067C /* CarriersInformationService.swift */,
 			);
 			path = ServiceFactory;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
 				CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */,
 				8499812D2B9C93BD006828B4 /* UIColor+Extensions.swift in Sources */,
+				CECCF5B92BA033B700D9067C /* CarriersInformationService.swift in Sources */,
 				849981302B9C95B2006828B4 /* SettingsViewController.swift in Sources */,
 				CECCF5A82B9F113400D9067C /* ThreadInformationService.swift in Sources */,
 				849981292B9C9184006828B4 /* TabBarController.swift in Sources */,

@@ -16,6 +16,8 @@ tags:
   description: Список станций следования
 - name: Ближайщий населенный пункт
   description: Ближайщий населенный пункт
+- name: Информация о перевозчике
+  description: Информация о перевозчике
 paths:
 # MARK: NearestStations
   /v3.0/nearest_stations/:
@@ -243,6 +245,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NearestSettlement'
+# MARK: GetCarriers
+  /v3.0/carrier/:
+    get:
+      tags:
+        - getCarriers
+      summary: Получение перевозчиков
+      operationId: getCarriers
+      parameters:
+        - name: format
+          in: query
+          description: Response format
+          required: true
+          schema:
+            type: string
+        - name: apikey
+          in: query
+          description: Your Yandex API key
+          required: true
+          schema:
+            type: string
+        - name: lang
+          in: query
+          description: Language of the response
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: query
+          description: Carrier code
+          required: true
+          schema:
+            type: string
+        - name: system
+          in: query
+          description: Carrier system
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carriers'
 # MARK: - Components
 components:
   schemas:
@@ -438,7 +485,7 @@ components:
         shortTitle:
           type: string
         carrier:
-          $ref: '#/components/schemas/Carrier'
+          $ref: '#/components/schemas/CarrierForThread'
         transportType:
           type: string
         vehicle:
@@ -447,7 +494,7 @@ components:
           $ref: '#/components/schemas/TransportSubtype'
         expressType:
           type: string
-    Carrier:
+    CarrierForThread:
       type: object
       properties:
         code:
@@ -619,3 +666,42 @@ components:
           type: number
         distance:
           type: number
+# MARK: GetCarriers
+    Carriers:
+      type: object
+      properties:
+        carriers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Carrier'
+    Carrier:
+      type: object
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        codes:
+          type: object
+          properties:
+            sirena:
+              type: string
+            iata:
+              type: string
+            icao:
+              type: string
+        address:
+          type: string
+        url:
+          type: string
+        email:
+          type: string
+        contacts:
+          type: string
+        phone:
+          type: string
+        logo:
+          type: string
+        offices:
+          type: array
+          items: {}
