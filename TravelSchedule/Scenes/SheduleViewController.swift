@@ -28,7 +28,7 @@ final class SheduleViewController: UIViewController {
         view.addSubview(label)
         uiBlockingProgressHUD = UIBlockingProgressHUD(viewController: self)
         // Select service
-        let service: Int = 6
+        let service: Int = 7
         uiBlockingProgressHUD?.showCustom()
         switch service {
         case 1:
@@ -49,6 +49,9 @@ final class SheduleViewController: UIViewController {
         case 6:
             print("carriers")
             carriersInformation()
+        case 7:
+            print("stations")
+            stationsList()
         default:
             print("Wrong service number")
         }
@@ -116,6 +119,15 @@ final class SheduleViewController: UIViewController {
         Task {
             let carriers = try await service.getCarriersInformation(code: "TK", system: "iata")
             label.text = "\(carriers)"
+            uiBlockingProgressHUD?.dismissCustom()
+        }
+    }
+    
+    private func stationsList() {
+        guard let service = create(service: .stationsList) as? StationsListService else { return }
+        Task {
+            let stations = try await service.getStationsList()
+            label.text = "\(stations)"
             uiBlockingProgressHUD?.dismissCustom()
         }
     }

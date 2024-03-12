@@ -18,6 +18,8 @@ tags:
   description: Ближайщий населенный пункт
 - name: Информация о перевозчике
   description: Информация о перевозчике
+- name: Список станций
+  description: Список станций
 paths:
 # MARK: NearestStations
   /v3.0/nearest_stations/:
@@ -290,6 +292,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Carriers'
+# MARK: StationsList
+  /v3.0/stations_list/:
+    get:
+      tags:
+        - getStationsList
+      summary: Получение списка станций
+      operationId: getStationsList
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+            example: {ключ}
+        - name: lang
+          in: query
+          description: Language code (ru_RU)
+          required: true
+          schema:
+            type: string
+            example: ru_RU
+        - name: format
+          in: query
+          description: Response format (json)
+          required: true
+          schema:
+            type: string
+            example: json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StationsList'
+            text/html:
+              schema: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
 # MARK: - Components
 components:
   schemas:
@@ -705,3 +753,59 @@ components:
         offices:
           type: array
           items: {}
+# MARK: StationsList
+    StationsList:
+      type: object
+      properties:
+        countries:
+          type: array
+          items:
+            type: object
+            properties:
+              regions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    settlements:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                          codes:
+                            type: object
+                          stations:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                direction:
+                                  type: string
+                                codes:
+                                  type: object
+                                  properties:
+                                    yandex_code:
+                                      type: string
+                                station_type:
+                                  type: string
+                                title:
+                                  type: string
+                                longitude:
+                                  type: number
+                                transport_type:
+                                  type: string
+                                latitude:
+                                  type: number
+                    codes:
+                      type: object
+                    title:
+                      type: string
+              codes:
+                type: object
+                properties:
+                  yandex_code:
+                    type: string
+              title:
+                type: string
