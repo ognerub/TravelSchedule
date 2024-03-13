@@ -26,6 +26,7 @@ final class StationsListService: StationsListServiceProtocol, APIService {
     }
 
     func  getListOfAllStations() async throws -> StationsList {
+        print("create response")
         let response = try await client.getStationsList(
             query: .init(
                 apikey: apikey,
@@ -33,9 +34,13 @@ final class StationsListService: StationsListServiceProtocol, APIService {
                 format: "json"
             )
         )
+        print("try httpBody")
         let httpBody = try response.ok.body.html
+        print("try data 1024")
         let data = try await Data(collecting: httpBody, upTo: 100 * 1024 * 1024)
-        let stationList = try await JSONDecoder().decode(from: httpBody, to: StationsList.self)
+        print("try decode")
+        let stationList = try JSONDecoder().decode(StationsList.self, from: data)
+        print("return stations")
         return stationList
     }
 }
