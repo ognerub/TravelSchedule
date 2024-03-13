@@ -28,7 +28,7 @@ final class SheduleViewController: UIViewController {
         view.addSubview(label)
         uiBlockingProgressHUD = UIBlockingProgressHUD(viewController: self)
         // Select service
-        let service: Int = 1
+        let service: Int = 7
         uiBlockingProgressHUD?.showCustom()
         switch service {
         case 1:
@@ -125,7 +125,8 @@ final class SheduleViewController: UIViewController {
     private func stationsList() {
         guard let service = create(service: .stationsList) as? StationsListService else { return }
         Task {
-            let stations = try await service.getStationsList()
+            let stations = try await service.getListOfAllStations()
+            print(stations)
             label.text = "\(stations)"
             uiBlockingProgressHUD?.dismissCustom()
         }
