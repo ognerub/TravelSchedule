@@ -11,6 +11,10 @@ import OpenAPIURLSession
 import SwiftSoup
 
 typealias StationsList = Components.Schemas.StationsList
+typealias Countries = StationsList.countriesPayloadPayload
+typealias Regions = Countries.regionsPayloadPayload
+typealias Settlements = Regions.settlementsPayloadPayload
+typealias Stations = Settlements.stationsPayloadPayload
 
 protocol StationsListServiceProtocol {
     func getListOfAllStations() async throws -> StationsList

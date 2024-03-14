@@ -127,10 +127,16 @@ final class SheduleViewController: UIViewController {
         Task {
             do {
                 let response = try await service.getListOfAllStations()
-                let countries = response.countries
+                let countries: [Countries] = response.countries ?? []
+                let regions: [Regions] = countries.flatMap{ $0.regions ?? [] }
+                let settlements: [Settlements] = regions.flatMap { $0.settlements ?? [] }
+                let stations: [Stations] = settlements.flatMap { $0.stations ?? [] }
                 label.text = String(
                     """
-                    Countries count \(countries?.count)
+                    Countries count \(countries.count)
+                    Regions count \(regions.count)
+                    Settlements count \(settlements.count)
+                    Stations count \(stations.count)
                     """
                 )
                 uiBlockingProgressHUD?.dismissCustom()
