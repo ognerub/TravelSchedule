@@ -325,9 +325,6 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StationsList'
             text/html:
               schema: {}
         '400':
@@ -793,11 +790,17 @@ components:
                                 title:
                                   type: string
                                 longitude:
-                                  type: number
+                                  oneOf:
+                                    - type: number
+                                    - type: string
+                                  nullable: true
                                 transport_type:
                                   type: string
                                 latitude:
-                                  type: number
+                                  oneOf:
+                                    - type: number
+                                    - type: string
+                                  nullable: true
                     codes:
                       type: object
                     title:
