@@ -23,7 +23,7 @@ protocol APIService {
     var apikey: String { get }
 }
 
-class ServiceFactory {
+final class ServiceFactory {
     static func createService(type: ServiceType, client: Client) -> APIService {
         let apikey = NetworkConstants.apiKey
         switch type {
