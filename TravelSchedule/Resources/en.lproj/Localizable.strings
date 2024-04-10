@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TravelSchedule
+
+  Created by Alexander Ognerubov on 10.04.2024.
+  
+*/
+
+"Schedule.FromToView.from" = "From";
+"Schedule.FromToView.to" = "To";
+"Schedule.SearchButtonView.search" = "Search";
