@@ -1,0 +1,22 @@
+input_dir: TravelSchedule/Resources
+output_dir: TravelSchedule/SwiftGen
+xcassets:
+  inputs:
+    - Assets.xcassets
+    - Colors.xcassets
+  outputs:
+    - templatePath: TravelSchedule/SwiftGen/template.stencil
+      params:
+        publicAccess: true
+      output: Assets.generated.swift
+      
+      
+
+strings:
+- paths: en.lproj/Localizable.strings
+  templatePath: TravelSchedule/SwiftGen/template.stencil
+  output: Localization.swift
+  params:
+    enumName: Localization
+    publicAccess: 1
+    noComments: 0
