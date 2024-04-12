@@ -21,7 +21,7 @@ tags:
 - name: Список станций
   description: Список станций
 paths:
-# MARK: NearestStations
+# MARK: - NearestStations
   /v3.0/nearest_stations/:
     get:
       tags:
@@ -72,7 +72,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Stations'
-# MARK: PointToPoint
+# MARK: - PointToPoint
   /v3.0/search/:
     get:
       tags:
@@ -117,7 +117,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PointToPoint'
-# MARK: ScheduleOnStation
+# MARK: - ScheduleOnStation
   /v3.0/schedule/:
     get:
       tags:
@@ -151,7 +151,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScheduleOnStation'
-# MARK: ThreadInformation
+# MARK: - ThreadInformation
   /v3.0/thread/:
     get:
       tags:
@@ -196,7 +196,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ThreadInformation'
-# MARK: NearestSettlement
+# MARK: - NearestSettlement
   /v3.0/nearest_settlement/:
     get:
       tags:
@@ -247,7 +247,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NearestSettlement'
-# MARK: GetCarriers
+# MARK: - GetCarriers
   /v3.0/carrier/:
     get:
       tags:
@@ -292,7 +292,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Carriers'
-# MARK: StationsList
+# MARK: - StationsList
   /v3.0/stations_list/:
     get:
       tags:
@@ -325,9 +325,6 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StationsList'
             text/html:
               schema: {}
         '400':
@@ -341,7 +338,7 @@ paths:
 # MARK: - Components
 components:
   schemas:
-# MARK: Stations
+# MARK: - Stations
     Stations:
       type: object
       properties:
@@ -396,7 +393,7 @@ components:
           type: string
         touch_url:
           type: string
-# MARK: PointToPoint
+# MARK: - PointToPoint
     PointToPoint:
       type: object
       properties:
@@ -429,7 +426,7 @@ components:
                     type: string
                   number:
                     type: string
-# MARK: ScheduleOnStation
+# MARK: - ScheduleOnStation
     ScheduleOnStation:
       type: object
       properties:
@@ -587,7 +584,7 @@ components:
           type: string
         title:
           type: string
-# MARK: ThreadInformation
+# MARK: - ThreadInformation
     ThreadInformation:
       type: object
       properties:
@@ -694,7 +691,7 @@ components:
           type: string
         start_time:
           type: string
-# MARK: NearestSettlement
+# MARK: - NearestSettlement
     NearestSettlement:
       type: object
       properties:
@@ -714,7 +711,7 @@ components:
           type: number
         distance:
           type: number
-# MARK: GetCarriers
+# MARK: - GetCarriers
     Carriers:
       type: object
       properties:
@@ -753,7 +750,7 @@ components:
         offices:
           type: array
           items: {}
-# MARK: StationsList
+# MARK: - StationsList
     StationsList:
       type: object
       properties:
@@ -793,11 +790,17 @@ components:
                                 title:
                                   type: string
                                 longitude:
-                                  type: number
+                                  oneOf:
+                                    - type: number
+                                    - type: string
+                                  nullable: true
                                 transport_type:
                                   type: string
                                 latitude:
-                                  type: number
+                                  oneOf:
+                                    - type: number
+                                    - type: string
+                                  nullable: true
                     codes:
                       type: object
                     title:

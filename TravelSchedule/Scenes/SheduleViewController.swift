@@ -28,7 +28,7 @@ final class SheduleViewController: UIViewController {
         view.addSubview(label)
         uiBlockingProgressHUD = UIBlockingProgressHUD(viewController: self)
         // Select service
-        let service: Int = 1
+        let service: Int = 7
         uiBlockingProgressHUD?.showCustom()
         switch service {
         case 1:
@@ -125,9 +125,35 @@ final class SheduleViewController: UIViewController {
     private func stationsList() {
         guard let service = create(service: .stationsList) as? StationsListService else { return }
         Task {
-            let stations = try await service.getStationsList()
-            label.text = "\(stations)"
-            uiBlockingProgressHUD?.dismissCustom()
+            do {
+                let response = try await service.getListOfAllStations()
+                let countries: [Countries] = response.countries ?? []
+                let regions: [Regions] = countries.flatMap{ $0.regions ?? [] }
+                let settlements: [Settlements] = regions.flatMap { $0.settlements ?? [] }
+                let stations: [Stations] = settlements.flatMap { $0.stations ?? [] }
+                label.text = String(
+                    """
+                    Countries count \(countries.count)
+                    Regions count \(regions.count)
+                    Settlements count \(settlements.count)
+                    Stations count \(stations.count)
+                    """
+                )
+                uiBlockingProgressHUD?.dismissCustom()
+                } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("❌ ERROR: \(error.localizedDescription)")
+                }
         }
     }
 }
