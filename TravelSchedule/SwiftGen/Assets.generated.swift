@@ -1,6 +1,6 @@
 // 🤖 This file was code-generated. Do not edit!!!
 
-import UIKit
+import SwiftUI
 
 // MARK: - Images
 public extension UIImage {

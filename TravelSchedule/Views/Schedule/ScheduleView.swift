@@ -10,17 +10,15 @@ import SwiftUI
 struct ScheduleView: View {
     
     @StateObject var viewModel = ScheduleViewModel()
-    @State private var fromString: String = ""
-    @State private var toString: String = ""
+    @State var isSearchButtonVisible: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                StoriesView()
-                FromToView(fromString: fromString, toString: toString)
-                SearchButtonView()
-                Spacer()
-            }
+        VStack {
+            StoriesView()
+            FromToView()
+            SearchButtonView()
+                .opacity(isSearchButtonVisible ? 1 : 0)
+            Spacer()
         }
     }
     
