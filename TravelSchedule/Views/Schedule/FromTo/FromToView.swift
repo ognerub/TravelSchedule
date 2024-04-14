@@ -36,7 +36,9 @@ struct FromToView: View {
                 }
             }
             Button(action: {
-                //isStringsSwitched.toggle()
+                let lastFromString = fromString
+                fromString = toString
+                toString = lastFromString
             }) {
                 Image(uiImage: UIImage.сhange)
                     .frame(width: 36, height: 36)

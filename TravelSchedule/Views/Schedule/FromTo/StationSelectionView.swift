@@ -20,7 +20,7 @@ struct StationSelectionView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.filteredStations) { station in
+            ForEach(viewModel.getFilteredStations(by: selectedCity)) { station in
                 Button(action: {
                     if isFromStringWasSelected {
                         fromString = selectedCity + " (" + station.name + ")"
@@ -57,6 +57,6 @@ struct StationSelectionView: View {
             fromString: ScheduleView(path: ContentView().$navPath).$fromString,
             toString: ScheduleView(path: ContentView().$navPath).$toString,
             isFromStringWasSelected: true).$isFromStringWasSelected,
-        selectedCity: "Moscow"
+        selectedCity: "Omsk"
     )
 }
