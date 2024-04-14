@@ -4,7 +4,13 @@ import UIKit
 
 // MARK: - Images
 public extension UIImage {
-  static let splashScreen: UIImage = UIImage(named: "SplashScreen")!
+  static let arrowRight: UIImage = UIImage(named: "arrowRight")!
+  static let change: UIImage = UIImage(named: "change")!
+  static let scheduleTabIcon: UIImage = UIImage(named: "scheduleTabIcon")!
+  static let settingsTabIcon: UIImage = UIImage(named: "settingsTabIcon")!
+  static let fgk: UIImage = UIImage(named: "fgk")!
+  static let rzhd: UIImage = UIImage(named: "rzhd")!
+  static let url: UIImage = UIImage(named: "url")!
   static let bs1: UIImage = UIImage(named: "bs1")!
   static let bs10: UIImage = UIImage(named: "bs10")!
   static let bs11: UIImage = UIImage(named: "bs11")!
@@ -32,10 +38,7 @@ public extension UIImage {
   static let sp7: UIImage = UIImage(named: "sp7")!
   static let sp8: UIImage = UIImage(named: "sp8")!
   static let sp9: UIImage = UIImage(named: "sp9")!
-  static let arrowRight: UIImage = UIImage(named: "ArrowRight")!
-  static let scheduleTabIcon: UIImage = UIImage(named: "ScheduleTabIcon")!
-  static let settingsTabIcon: UIImage = UIImage(named: "SettingsTabIcon")!
-  static let сhange: UIImage = UIImage(named: "Сhange")!
+  static let splashScreen: UIImage = UIImage(named: "splashScreen")!
 }
 
 // MARK: - Colors
@@ -46,6 +49,7 @@ public extension UIColor {
   static let blueUniversal: UIColor = UIColor(named: "BlueUniversal")!
   static let greyUniversal: UIColor = UIColor(named: "GreyUniversal")!
   static let lightGrey: UIColor = UIColor(named: "LightGrey")!
+  static let redUniversal: UIColor = UIColor(named: "RedUniversal")!
   static let whiteDay: UIColor = UIColor(named: "WhiteDay")!
   static let whiteUniversal: UIColor = UIColor(named: "WhiteUniversal")!
 }

@@ -12,6 +12,7 @@ struct FromToView: View {
     @Binding var path: [String]
     @Binding var fromString: String
     @Binding var toString: String
+    @Binding var isSearchButtonVisible: Bool
     
     var body: some View {
         HStack {
@@ -19,28 +20,18 @@ struct FromToView: View {
                 NavigationLink(value: "TopTextFieldView", label: {
                     TextFieldView(string: $fromString, type: .top)
                 })
-                .buttonStyle(TransparentButtonStyle())
+                //.buttonStyle(TransparentButtonStyle())
                 NavigationLink(value: "BottomTextFieldView", label: {
                     TextFieldView(string: $toString, type: .bottom)
                 })
                 .buttonStyle(TransparentButtonStyle())
-                .navigationDestination(for: String.self) { id in
-                    if id == "TopTextFieldView" {
-                        CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: true)
-                            .toolbarRole(.editor)
-                    }
-                    if id == "BottomTextFieldView" {
-                        CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: false)
-                            .toolbarRole(.editor)
-                    }
-                }
             }
             Button(action: {
                 let lastFromString = fromString
                 fromString = toString
                 toString = lastFromString
             }) {
-                Image(uiImage: UIImage.сhange)
+                Image(uiImage: UIImage.change)
                     .frame(width: 36, height: 36)
                     .padding(16)
             }
@@ -48,11 +39,35 @@ struct FromToView: View {
         .background(Color.init(UIColor.blueUniversal))
         .cornerRadius(16)
         .padding(16)
+        NavigationLink(value: "SearchButtonView", label: {
+            Text("Search")
+                .foregroundColor(Color.init(UIColor.whiteDay))
+                .font(Font.system(size: 17, weight: .bold))
+                .frame(width: 150, height: 60)
+                .background(Color.init(UIColor.blueUniversal))
+                .cornerRadius(16)
+        })
+        .buttonStyle(TransparentButtonStyle())
+        .opacity(isSearchButtonVisible ? 1 : 0)
+        .navigationDestination(for: String.self) { id in
+            if id == "TopTextFieldView" {
+                CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: true)
+                    .toolbarRole(.editor)
+            }
+            if id == "BottomTextFieldView" {
+                CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: false)
+                    .toolbarRole(.editor)
+            }
+            if id == "SearchButtonView" {
+                RoutesListView(fromToString: fromString + " → " + toString)
+                    .toolbarRole(.editor)
+            }
+        }
     }
 }
 
 #Preview {
-    FromToView(path: ScheduleView(path: ContentView().$navPath).$path, fromString: ScheduleView(path: ContentView().$navPath).$fromString, toString: ScheduleView(path: ContentView().$navPath).$toString)
+    FromToView(path: ScheduleView(path: ContentView().$navPath).$path, fromString: ScheduleView(path: ContentView().$navPath).$fromString, toString: ScheduleView(path: ContentView().$navPath).$toString, isSearchButtonVisible: ScheduleView(path: ContentView().$navPath).$isSearchButtonVisible)
 }
 
 struct TransparentButtonStyle: ButtonStyle {

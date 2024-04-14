@@ -12,7 +12,6 @@ struct ScheduleView: View {
     @Binding var path: [String]
     
     @StateObject var viewModel = ScheduleViewModel()
-    
     @State var isSearchButtonVisible: Bool = false
     @State var fromString: String = Localization.Schedule.FromToView.from
     @State var toString: String = Localization.Schedule.FromToView.to
@@ -20,9 +19,7 @@ struct ScheduleView: View {
     var body: some View {
         VStack {
             StoriesView()
-            FromToView(path: $path, fromString: $fromString, toString: $toString)
-            SearchButtonView()
-                .opacity(isSearchButtonVisible ? 1 : 0)
+            FromToView(path: $path, fromString: $fromString, toString: $toString, isSearchButtonVisible: $isSearchButtonVisible)
             Spacer()
         }
         .onAppear {
