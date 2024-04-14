@@ -48,15 +48,5 @@ struct StationSelectionView: View {
 }
 
 #Preview {
-    StationSelectionView(
-        path: ScheduleView(path: ContentView().$navPath).$path,
-        fromString: ScheduleView(path: ContentView().$navPath).$fromString,
-        toString: ScheduleView(path: ContentView().$navPath).$toString,
-        isFromStringWasSelected: CitySelectionView(
-            path: ContentView().$navPath,
-            fromString: ScheduleView(path: ContentView().$navPath).$fromString,
-            toString: ScheduleView(path: ContentView().$navPath).$toString,
-            isFromStringWasSelected: true).$isFromStringWasSelected,
-        selectedCity: "Omsk"
-    )
+    StationSelectionView(path: ScheduleView(path: ContentView().$navPath, fromString: "From", toString: "To").$path, fromString: ScheduleView(path: ContentView().$navPath, fromString: "From", toString: "To").$fromString, toString: ScheduleView(path: ContentView().$navPath, fromString: "From", toString: "To").$toString, isFromStringWasSelected: ScheduleView(path: ContentView().$navPath, fromString: "From", toString: "To").$isSearchButtonVisible, selectedCity: "Moscow")
 }

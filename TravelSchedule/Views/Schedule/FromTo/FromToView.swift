@@ -20,17 +20,11 @@ struct FromToView: View {
                 NavigationLink(value: "TopTextFieldView", label: {
                     TextFieldView(string: $fromString, type: .top)
                 })
-                //.buttonStyle(TransparentButtonStyle())
                 NavigationLink(value: "BottomTextFieldView", label: {
                     TextFieldView(string: $toString, type: .bottom)
                 })
-                .buttonStyle(TransparentButtonStyle())
             }
-            Button(action: {
-                let lastFromString = fromString
-                fromString = toString
-                toString = lastFromString
-            }) {
+            Button(action: switchFromAndToStrings) {
                 Image(uiImage: UIImage.change)
                     .frame(width: 36, height: 36)
                     .padding(16)
@@ -40,14 +34,8 @@ struct FromToView: View {
         .cornerRadius(16)
         .padding(16)
         NavigationLink(value: "SearchButtonView", label: {
-            Text("Search")
-                .foregroundColor(Color.init(UIColor.whiteDay))
-                .font(Font.system(size: 17, weight: .bold))
-                .frame(width: 150, height: 60)
-                .background(Color.init(UIColor.blueUniversal))
-                .cornerRadius(16)
+            SearchButtonView()
         })
-        .buttonStyle(TransparentButtonStyle())
         .opacity(isSearchButtonVisible ? 1 : 0)
         .navigationDestination(for: String.self) { id in
             if id == "TopTextFieldView" {
@@ -64,17 +52,16 @@ struct FromToView: View {
             }
         }
     }
+    
+    private func switchFromAndToStrings() {
+        let lastFromString = fromString
+        fromString = toString
+        toString = lastFromString
+    }
 }
 
 #Preview {
     FromToView(path: ScheduleView(path: ContentView().$navPath).$path, fromString: ScheduleView(path: ContentView().$navPath).$fromString, toString: ScheduleView(path: ContentView().$navPath).$toString, isSearchButtonVisible: ScheduleView(path: ContentView().$navPath).$isSearchButtonVisible)
-}
-
-struct TransparentButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .background(configuration.isPressed ? Color.init(UIColor.clear) : Color.init(UIColor.clear))
-    }
 }
 
 struct TextFieldView: View {

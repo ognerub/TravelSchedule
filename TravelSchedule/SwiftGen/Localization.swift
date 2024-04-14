@@ -44,6 +44,11 @@ public enum Localization {
             /// Search
             public static let search = localize("Schedule.SearchButtonView.search")
         }
+
+        public enum SpecifyButtonView {
+            /// Specify time
+            public static let filter = localize("Schedule.SpecifyButtonView.filter")
+        }
     }
 
     public enum StationSelection {

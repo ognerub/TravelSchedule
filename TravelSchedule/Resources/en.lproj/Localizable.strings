@@ -10,6 +10,7 @@
 "Schedule.FromToView.from" = "From";
 "Schedule.FromToView.to" = "To";
 "Schedule.SearchButtonView.search" = "Search";
+"Schedule.SpecifyButtonView.filter" = "Specify time";
 
 /* MARK: - City Selection */
 "CitySelection.Navigation.title" = "City selection";
