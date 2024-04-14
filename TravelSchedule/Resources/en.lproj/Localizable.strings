@@ -6,6 +6,19 @@
   
 */
 
+/* MARK: - Schedule */
 "Schedule.FromToView.from" = "From";
 "Schedule.FromToView.to" = "To";
 "Schedule.SearchButtonView.search" = "Search";
+
+/* MARK: - City Selection */
+"CitySelection.Navigation.title" = "City selection";
+"CitySelection.CitiesCodes.MOW" = "Moscow";
+"CitySelection.CitiesCodes.LED" = "Saint-Petersburg";
+"CitySelection.CitiesCodes.AER" = "Sochi";
+"CitySelection.CitiesCodes.KRR" = "Krasnodar";
+"CitySelection.CitiesCodes.KZN" = "Kazan";
+"CitySelection.CitiesCodes.OMS" = "Omsk";
+
+/* MARK: - Station Selection */
+"StationSelection.Navigation.title" = "Station selection";

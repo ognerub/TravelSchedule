@@ -12,7 +12,7 @@ struct StoryCardView: View {
     var story: StoryModel
     
     var body: some View {
-        Image(uiImage: UIImage(named: story.name)!)
+        Image(uiImage: UIImage(named: story.name) ?? UIImage(systemName: "moon")!)
             .background(
                 NavigationLink("", destination: StoriesSingleView(storyName: story.id.uuidString))
             )
@@ -28,5 +28,5 @@ struct StoryCardView: View {
 }
 
 #Preview {
-    StoryCardView(story: StoryModel(id: UUID(), name: "Sp1", images: ["_1", "_2"]))
+    StoryCardView(story: StoryModel(id: UUID(), name: "sp1", images: ["_1", "_2"]))
 }

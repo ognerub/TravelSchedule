@@ -8,18 +8,49 @@ import Foundation
 
 public enum Localization {
 
+    public enum CitySelection {
+
+        public enum CitiesCodes {
+            /// Sochi
+            public static let aer = localize("CitySelection.CitiesCodes.AER")
+            /// Krasnodar
+            public static let krr = localize("CitySelection.CitiesCodes.KRR")
+            /// Kazan
+            public static let kzn = localize("CitySelection.CitiesCodes.KZN")
+            /// Saint-Petersburg
+            public static let led = localize("CitySelection.CitiesCodes.LED")
+            /// Moscow
+            public static let mow = localize("CitySelection.CitiesCodes.MOW")
+            /// Omsk
+            public static let oms = localize("CitySelection.CitiesCodes.OMS")
+        }
+
+        public enum Navigation {
+            /// City selection
+            public static let title = localize("CitySelection.Navigation.title")
+        }
+    }
+
     public enum Schedule {
 
         public enum FromToView {
-            /// FromLoc
+            /// From
             public static let from = localize("Schedule.FromToView.from")
-            /// ToLoc
+            /// To
             public static let to = localize("Schedule.FromToView.to")
         }
 
         public enum SearchButtonView {
-            /// SearchLoc
+            /// Search
             public static let search = localize("Schedule.SearchButtonView.search")
+        }
+    }
+
+    public enum StationSelection {
+
+        public enum Navigation {
+            /// Station selection
+            public static let title = localize("StationSelection.Navigation.title")
         }
     }
 }
