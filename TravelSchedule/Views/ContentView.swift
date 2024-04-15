@@ -21,6 +21,8 @@ struct ContentView: View {
                     .tabItem { Image(.scheduleTabIcon) }
                     .tag(0)
                 SettingsView(appearanceSelection: $appearanceSelection)
+                .tabItem { Image(.settingsTabIcon) }
+                .tag(1)
             }
             .tint(Color.init(UIColor.blackDay))
         }

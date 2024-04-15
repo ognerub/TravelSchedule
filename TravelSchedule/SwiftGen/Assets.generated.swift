@@ -38,6 +38,8 @@ public extension UIImage {
   static let sp7: UIImage = UIImage(named: "sp7")!
   static let sp8: UIImage = UIImage(named: "sp8")!
   static let sp9: UIImage = UIImage(named: "sp9")!
+  static let noInternet: UIImage = UIImage(named: "noInternet")!
+  static let serverError: UIImage = UIImage(named: "serverError")!
   static let splashScreen: UIImage = UIImage(named: "splashScreen")!
 }
 

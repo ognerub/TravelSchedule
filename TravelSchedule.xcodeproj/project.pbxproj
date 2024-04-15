@@ -14,6 +14,8 @@
 		810AFE3E2BCCCA1900D3D184 /* CarrierCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE3D2BCCCA1900D3D184 /* CarrierCardViewModel.swift */; };
 		810AFE492BCCE99100D3D184 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE482BCCE99100D3D184 /* SettingsView.swift */; };
 		810AFE4C2BCDAB5200D3D184 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE4B2BCDAB5200D3D184 /* WebView.swift */; };
+		810AFE552BCDB2CC00D3D184 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE542BCDB2CC00D3D184 /* NoNetworkView.swift */; };
+		810AFE592BCDB98F00D3D184 /* NetworkState in Frameworks */ = {isa = PBXBuildFile; productRef = 810AFE582BCDB98F00D3D184 /* NetworkState */; };
 		81A405BC2BC30857000D8EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405BB2BC30857000D8EE4 /* ContentView.swift */; };
 		81A405C72BC32134000D8EE4 /* TravelScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */; };
 		81A405CD2BC3270F000D8EE4 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81A405CC2BC3270F000D8EE4 /* swiftgen.yml */; };
@@ -73,6 +75,7 @@
 		810AFE3D2BCCCA1900D3D184 /* CarrierCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierCardViewModel.swift; sourceTree = "<group>"; };
 		810AFE482BCCE99100D3D184 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		810AFE4B2BCDAB5200D3D184 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		810AFE542BCDB2CC00D3D184 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
 		81A405BB2BC30857000D8EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScheduleApp.swift; sourceTree = "<group>"; };
 		81A405CC2BC3270F000D8EE4 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 				CE9E64552B9E0DF000A2134A /* OpenAPIURLSession in Frameworks */,
 				CE9E64522B9E080600A2134A /* OpenAPIRuntime in Frameworks */,
 				CECCF5C12BA0569200D9067C /* SwiftSoup in Frameworks */,
+				810AFE592BCDB98F00D3D184 /* NetworkState in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +169,16 @@
 			path = CarrierCard;
 			sourceTree = "<group>";
 		};
+		810AFE502BCDB1C000D3D184 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				810AFE482BCCE99100D3D184 /* SettingsView.swift */,
+				810AFE4B2BCDAB5200D3D184 /* WebView.swift */,
+				810AFE542BCDB2CC00D3D184 /* NoNetworkView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		81A405D92BC476D4000D8EE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				81A405BB2BC30857000D8EE4 /* ContentView.swift */,
-				810AFE482BCCE99100D3D184 /* SettingsView.swift */,
-				810AFE4B2BCDAB5200D3D184 /* WebView.swift */,
-				81A405FF2BC66DC4000D8EE4 /* Stories */,
+				810AFE502BCDB1C000D3D184 /* Settings */,
 				81A405FC2BC66DB9000D8EE4 /* Schedule */,
 			);
 			path = Views;
@@ -191,6 +203,7 @@
 		81A405FC2BC66DB9000D8EE4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				81A405FF2BC66DC4000D8EE4 /* Stories */,
 				81A405E52BC47AEE000D8EE4 /* ScheduleView.swift */,
 				81A405E32BC47AB5000D8EE4 /* ScheduleViewModel.swift */,
 				81C4F7C82BCA76870046CC12 /* FromTo */,
@@ -355,6 +368,7 @@
 				CE9E64512B9E080600A2134A /* OpenAPIRuntime */,
 				CE9E64542B9E0DF000A2134A /* OpenAPIURLSession */,
 				CECCF5C02BA0569200D9067C /* SwiftSoup */,
+				810AFE582BCDB98F00D3D184 /* NetworkState */,
 			);
 			productName = TravelSchedule;
 			productReference = 849981112B9C8FAA006828B4 /* TravelSchedule.app */;
@@ -389,6 +403,7 @@
 				CE9E64502B9E080600A2134A /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
 				CE9E64532B9E0DF000A2134A /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 				CECCF5BF2BA0569200D9067C /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				810AFE572BCDB98F00D3D184 /* XCRemoteSwiftPackageReference "NetworkState" */,
 			);
 			productRefGroup = 849981122B9C8FAA006828B4 /* Products */;
 			projectDirPath = "";
@@ -422,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810AFE552BCDB2CC00D3D184 /* NoNetworkView.swift in Sources */,
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
 				810AFE382BCC4BE000D3D184 /* SpecifyTimeView.swift in Sources */,
 				81B953FE2BCB2444005AF285 /* StationSelectionViewModel.swift in Sources */,
@@ -703,6 +719,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		810AFE572BCDB98F00D3D184 /* XCRemoteSwiftPackageReference "NetworkState" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rebeloper/NetworkState.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		CE9E644B2B9E080600A2134A /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-openapi-generator";
@@ -738,6 +762,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		810AFE582BCDB98F00D3D184 /* NetworkState */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 810AFE572BCDB98F00D3D184 /* XCRemoteSwiftPackageReference "NetworkState" */;
+			productName = NetworkState;
+		};
 		CE9E64512B9E080600A2134A /* OpenAPIRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE9E64502B9E080600A2134A /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
