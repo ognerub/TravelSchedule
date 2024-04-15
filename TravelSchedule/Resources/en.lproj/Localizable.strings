@@ -12,7 +12,7 @@
 "Schedule.SearchButtonView.search" = "Search";
 "Schedule.SpecifyButtonView.filter" = "Specify time";
 
-/* MARK: - City Selection */
+/* MARK: City Selection */
 "CitySelection.Navigation.title" = "City selection";
 "CitySelection.CitiesCodes.MOW" = "Moscow";
 "CitySelection.CitiesCodes.LED" = "Saint-Petersburg";
@@ -21,5 +21,19 @@
 "CitySelection.CitiesCodes.KZN" = "Kazan";
 "CitySelection.CitiesCodes.OMS" = "Omsk";
 
-/* MARK: - Station Selection */
+/* MARK: Station Selection */
 "StationSelection.Navigation.title" = "Station selection";
+
+/* MARK: SpecifyTime */
+"Schedule.SpecifyTimeView.departureTime" = "Departure time";
+"Schedule.SpecifyTimeView.morning" = "Morning";
+"Schedule.SpecifyTimeView.afternoon" = "Afternoon";
+"Schedule.SpecifyTimeView.evening" = "Evening";
+"Schedule.SpecifyTimeView.night" = "Night";
+"Schedule.SpecifyTimeView.showTransfers" = "Show route options with transfers";
+"Schedule.SpecifyTimeView.yes" = "Yes";
+"Schedule.SpecifyTimeView.no" = "No";
+"Schedule.SpecifyTimeView.apply" = "Apply";
+
+/* MARK: CarrierCardView */
+"CarrierCardView.Navigation.title" = "Информация о перевозчике";

@@ -24,19 +24,38 @@ struct RoutesListView: View {
                             .foregroundColor(Color.init(uiColor: UIColor.blackDay))
                         VStack(spacing: 8) {
                             ForEach(viewModel.routesArray) { route in
-                                RouteCardView(route: route)
+                                NavigationLink(destination: {
+                                    CarrierCardView(logo: route.logo)
+                                        .navigationBarTitleDisplayMode(.inline)
+                                                .toolbar {
+                                                    ToolbarItem(placement: .principal) {
+                                                        VStack {
+                                                            CustomTextView(string: Localization.CarrierCardView.Navigation.title, size: 17, weight: .bold, color: UIColor.blackDay)
+                                                        }
+                                                    }
+                                                }
+                                }, label: {
+                                    RouteCardView(route: route)
+                                })
+                                
+                                //.navigationTitle(Localization.CarrierCardView.Navigation.title)
+                                //.toolbarRole(.editor)
                             }
                         }
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 80)
                 }
-                
             }
-            
             VStack {
                 Spacer()
-                SpecifyButtonView()
+                NavigationLink(destination: {
+                    SpecifyTimeView()
+                }, label: {
+                    InfinityWidthButtonView(string: Localization.Schedule.SpecifyButtonView.filter)
+                })
+                .navigationTitle("")
+                .toolbarRole(.editor)
             }
         }
     }

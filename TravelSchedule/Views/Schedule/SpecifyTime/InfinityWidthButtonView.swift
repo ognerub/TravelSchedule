@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct SpecifyButtonView: View {
+struct InfinityWidthButtonView: View {
+    
+    @State var string: String
+    
     var body: some View {
-        Text(Localization.Schedule.SpecifyButtonView.filter)
-            .foregroundColor(Color.init(UIColor.whiteDay))
+        Text(string)
+            .foregroundColor(Color.init(UIColor.whiteUniversal))
             .font(Font.system(size: 17, weight: .bold))
             .frame(maxWidth: .infinity)
             .frame(height: 60)
@@ -21,5 +24,5 @@ struct SpecifyButtonView: View {
 }
 
 #Preview {
-    SpecifyButtonView()
+    InfinityWidthButtonView(string: Localization.Schedule.SpecifyButtonView.filter)
 }

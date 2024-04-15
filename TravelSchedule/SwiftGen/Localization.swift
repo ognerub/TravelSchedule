@@ -8,6 +8,14 @@ import Foundation
 
 public enum Localization {
 
+    public enum CarrierCardView {
+
+        public enum Navigation {
+            /// Информация о перевозчике
+            public static let title = localize("CarrierCardView.Navigation.title")
+        }
+    }
+
     public enum CitySelection {
 
         public enum CitiesCodes {
@@ -48,6 +56,27 @@ public enum Localization {
         public enum SpecifyButtonView {
             /// Specify time
             public static let filter = localize("Schedule.SpecifyButtonView.filter")
+        }
+
+        public enum SpecifyTimeView {
+            /// Afternoon
+            public static let afternoon = localize("Schedule.SpecifyTimeView.afternoon")
+            /// Apply
+            public static let apply = localize("Schedule.SpecifyTimeView.apply")
+            /// Departure time
+            public static let departureTime = localize("Schedule.SpecifyTimeView.departureTime")
+            /// Evening
+            public static let evening = localize("Schedule.SpecifyTimeView.evening")
+            /// Morning
+            public static let morning = localize("Schedule.SpecifyTimeView.morning")
+            /// Night
+            public static let night = localize("Schedule.SpecifyTimeView.night")
+            /// No
+            public static let no = localize("Schedule.SpecifyTimeView.no")
+            /// Show route options with transfers
+            public static let showTransfers = localize("Schedule.SpecifyTimeView.showTransfers")
+            /// Yes
+            public static let yes = localize("Schedule.SpecifyTimeView.yes")
         }
     }
 

@@ -16,7 +16,6 @@ struct StationSelectionView: View {
     @State var selectedCity: String
     
     @StateObject var viewModel = StationSelectionViewModel()
-    //@Environment(\.dismiss) private var dismiss
     
     var body: some View {
         List {
@@ -28,7 +27,6 @@ struct StationSelectionView: View {
                         toString = selectedCity + " (" + station.name + ")"
                     }
                     path.removeAll()
-                    //dismiss()
                 } ) {
                     HStack {
                         Text(station.name)

@@ -16,31 +16,24 @@ struct RouteCardView: View {
             HStack(alignment: .top) {
                 Image(uiImage: (UIImage(named: route.logo) ?? UIImage(systemName: "nosign")!))
                 VStack(alignment: .leading) {
-                    Text(route.company)
-                        .font(Font.system(size: 17, weight: .regular))
-                    Text(route.transfer)
-                        .font(Font.system(size: 12, weight: .regular))
-                        .foregroundColor(Color(uiColor: UIColor.redUniversal))
+                    CustomTextView(string: route.company, size: 17, weight: .regular, color: UIColor.blackUniversal)
+                    CustomTextView(string: route.transfer, size: 12, weight: .regular, color: UIColor.redUniversal)
                 }
                 Spacer()
-                Text(route.date)
-                    .font(Font.system(size: 14, weight: .regular))
+                CustomTextView(string: route.date, size: 14, weight: .regular, color: UIColor.blackUniversal)
             }
             HStack {
-                Text(route.startTime)
-                    .font(Font.system(size: 17, weight: .regular))
+                CustomTextView(string: route.startTime, size: 17, weight: .regular, color: UIColor.blackUniversal)
                 Rectangle()
                     .foregroundColor(Color.init(uiColor: UIColor.greyUniversal))
-                    .frame(width: .infinity, height: 1)
-                Text(route.duration)
-                    .font(Font.system(size: 12, weight: .regular))
+                    .frame(height: 1)
+                CustomTextView(string: route.duration, size: 12, weight: .regular, color: UIColor.blackUniversal)
                     .frame(minWidth: 56)
                     .lineLimit(1)
                 Rectangle()
                     .foregroundColor(Color.init(uiColor: UIColor.greyUniversal))
-                    .frame(width: .infinity, height: 1)
-                Text(route.endTime)
-                    .font(Font.system(size: 17, weight: .regular))
+                    .frame(height: 1)
+                CustomTextView(string: route.endTime, size: 17, weight: .regular, color: UIColor.blackUniversal)
             }
         }
         .padding(14)
@@ -51,4 +44,18 @@ struct RouteCardView: View {
 
 #Preview {
     RouteCardView(route: RouteModel(id: UUID(), logo: "rzhd", company: "Russian Railways", transfer: "With a transfer in Kostroma", date: "14 january", startTime: "22:30", endTime: "08:15", duration: "20 hours"))
+}
+
+struct CustomTextView: View {
+    
+    @State var string: String
+    @State var size: CGFloat
+    @State var weight: Font.Weight
+    @State var color: UIColor
+    
+    var body: some View {
+        Text(string)
+            .font(Font.system(size: size, weight: weight))
+            .foregroundColor(Color(uiColor: color))
+    }
 }
