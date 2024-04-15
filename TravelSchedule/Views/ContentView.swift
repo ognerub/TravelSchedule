@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @AppStorage("appearanceSelection") var appearanceSelection: Int = 0
+    
     @State private var selection = 0
     @State var navPath: [String] = []
     
@@ -18,9 +20,7 @@ struct ContentView: View {
                 ScheduleView(path: $navPath)
                     .tabItem { Image(.scheduleTabIcon) }
                     .tag(0)
-                Text("Settings")
-                    .tabItem { Image(.settingsTabIcon) }
-                    .tag(1)
+                SettingsView(appearanceSelection: $appearanceSelection)
             }
             .tint(Color.init(UIColor.blackDay))
         }

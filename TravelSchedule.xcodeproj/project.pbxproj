@@ -12,6 +12,7 @@
 		810AFE382BCC4BE000D3D184 /* SpecifyTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE372BCC4BE000D3D184 /* SpecifyTimeView.swift */; };
 		810AFE3B2BCCC8F300D3D184 /* CarrierCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE3A2BCCC8F300D3D184 /* CarrierCardView.swift */; };
 		810AFE3E2BCCCA1900D3D184 /* CarrierCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE3D2BCCCA1900D3D184 /* CarrierCardViewModel.swift */; };
+		810AFE492BCCE99100D3D184 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AFE482BCCE99100D3D184 /* SettingsView.swift */; };
 		81A405BC2BC30857000D8EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405BB2BC30857000D8EE4 /* ContentView.swift */; };
 		81A405C72BC32134000D8EE4 /* TravelScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */; };
 		81A405CD2BC3270F000D8EE4 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81A405CC2BC3270F000D8EE4 /* swiftgen.yml */; };
@@ -69,6 +70,7 @@
 		810AFE372BCC4BE000D3D184 /* SpecifyTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifyTimeView.swift; sourceTree = "<group>"; };
 		810AFE3A2BCCC8F300D3D184 /* CarrierCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierCardView.swift; sourceTree = "<group>"; };
 		810AFE3D2BCCCA1900D3D184 /* CarrierCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierCardViewModel.swift; sourceTree = "<group>"; };
+		810AFE482BCCE99100D3D184 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		81A405BB2BC30857000D8EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScheduleApp.swift; sourceTree = "<group>"; };
 		81A405CC2BC3270F000D8EE4 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				81A405BB2BC30857000D8EE4 /* ContentView.swift */,
+				810AFE482BCCE99100D3D184 /* SettingsView.swift */,
 				81A405FF2BC66DC4000D8EE4 /* Stories */,
 				81A405FC2BC66DB9000D8EE4 /* Schedule */,
 			);
@@ -437,6 +440,7 @@
 				810AFE3E2BCCCA1900D3D184 /* CarrierCardViewModel.swift in Sources */,
 				CECCF5B32B9F3F3A00D9067C /* UIBlockingProgressHUD.swift in Sources */,
 				CECCF5BD2BA0424400D9067C /* StationsList.swift in Sources */,
+				810AFE492BCCE99100D3D184 /* SettingsView.swift in Sources */,
 				CECCF5B62B9FA65300D9067C /* NearestSettlement.swift in Sources */,
 				81B954112BCC24C9005AF285 /* RouteCardView.swift in Sources */,
 				81A405EE2BC66B63000D8EE4 /* View+Extensions.swift in Sources */,
