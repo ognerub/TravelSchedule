@@ -45,17 +45,3 @@ struct RouteCardView: View {
 #Preview {
     RouteCardView(route: RouteModel(id: UUID(), logo: "rzhd", company: "Russian Railways", transfer: "With a transfer in Kostroma", date: "14 january", startTime: "22:30", endTime: "08:15", duration: "20 hours"))
 }
-
-struct CustomTextView: View {
-    
-    @State var string: String
-    @State var size: CGFloat
-    @State var weight: Font.Weight
-    @State var color: UIColor
-    
-    var body: some View {
-        Text(string)
-            .font(Font.system(size: size, weight: weight))
-            .foregroundColor(Color(uiColor: color))
-    }
-}
