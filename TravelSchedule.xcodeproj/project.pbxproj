@@ -202,6 +202,15 @@
 			path = Toggles;
 			sourceTree = "<group>";
 		};
+		8148C90E2BD1BC000003FDD1 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				811D37DB2BD1397B001B080D /* CustomTextView.swift */,
+				810AFE292BCC3BCD00D3D184 /* InfinityWidthButtonView.swift */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
 		81A405D92BC476D4000D8EE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +228,7 @@
 				81A405BB2BC30857000D8EE4 /* ContentView.swift */,
 				810AFE502BCDB1C000D3D184 /* Settings */,
 				81A405FC2BC66DB9000D8EE4 /* Schedule */,
-				810AFE292BCC3BCD00D3D184 /* InfinityWidthButtonView.swift */,
-				811D37DB2BD1397B001B080D /* CustomTextView.swift */,
+				8148C90E2BD1BC000003FDD1 /* SharedViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
