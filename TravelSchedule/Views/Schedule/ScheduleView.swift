@@ -23,11 +23,7 @@ struct ScheduleView: View {
             Spacer()
         }
         .onAppear {
-            if fromString != Localization.Schedule.FromToView.from && toString != Localization.Schedule.FromToView.to {
-                isSearchButtonVisible = true
-            } else {
-                isSearchButtonVisible = false
-            }
+            isSearchButtonVisible = fromString != Localization.Schedule.FromToView.from && toString != Localization.Schedule.FromToView.to
         }
     }
     

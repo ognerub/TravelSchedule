@@ -14,7 +14,7 @@ struct CarrierLogoView: View {
     var body: some View {
         HStack {
             Spacer()
-            Image(uiImage: (UIImage(named: logo) ?? UIImage(systemName: "nosign")!))
+            Image(uiImage: (UIImage(named: logo) ?? UIImage(systemName: "nosign") ?? UIImage()))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 104)

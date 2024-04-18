@@ -38,19 +38,26 @@ struct FromToView: View {
         })
         .opacity(isSearchButtonVisible ? 1 : 0)
         .navigationDestination(for: String.self) { id in
-            if id == "TopTextFieldView" {
+            switch id {
+            case NavigationIdentifiers.topTextFieldView.rawValue:
                 CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: true)
                     .toolbarRole(.editor)
-            }
-            if id == "BottomTextFieldView" {
+            case NavigationIdentifiers.bottomTextFieldView.rawValue:
                 CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: false)
                     .toolbarRole(.editor)
-            }
-            if id == "SearchButtonView" {
+            case NavigationIdentifiers.searchButtonView.rawValue:
                 RoutesListView(fromToString: fromString + " → " + toString)
                     .toolbarRole(.editor)
+            default:
+                CustomTextView(string: "Error navigation destination", size: 15, weight: .bold, color: UIColor.redUniversal)
             }
         }
+    }
+    
+    private enum NavigationIdentifiers: String {
+        case topTextFieldView = "TopTextFieldView"
+        case bottomTextFieldView = "BottomTextFieldView"
+        case searchButtonView = "SearchButtonView"
     }
     
     private func switchFromAndToStrings() {

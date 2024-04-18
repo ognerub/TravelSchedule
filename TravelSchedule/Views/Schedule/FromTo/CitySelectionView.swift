@@ -28,12 +28,12 @@ struct CitySelectionView: View {
                 }
                 .background(
                     NavigationLink(city.name, destination: StationSelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: $isFromStringWasSelected, selectedCity: city.name)
-                    )
+                                  )
                 )
                 .navigationDestination(for: String.self) { id in
                     if id == city.name {
                         CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: true)
-                            .toolbarRole(.editor)
+                            .toolbarRole(.navigationStack)
                     }
                 }
             }

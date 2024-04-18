@@ -33,7 +33,9 @@ struct SettingsView: View {
                         ProgressView(value: viewModel.progress)
                             .progressViewStyle(.linear)
                             .opacity(isProgressViewVisible ? 1 : 0)
-                        WebView(url: URL(string: "https://yandex.ru/legal/practicum_offer/") ?? URL(string: "")!, viewModel: viewModel)
+                        if let urlString: URL = URL(string: "https://yandex.ru/legal/practicum_offer/") {
+                            WebView(url: urlString, viewModel: viewModel)
+                        }
                     }
                     .padding(.top, 88)
                     .ignoresSafeArea()

@@ -40,6 +40,7 @@ struct StationSelectionView: View {
             .listRowSeparator(.hidden, edges: .all)
         }
         .navigationTitle(Localization.StationSelection.Navigation.title)
+        .toolbarRole(.editor)
         .listStyle(.plain)
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
     }

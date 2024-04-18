@@ -14,7 +14,7 @@ struct RouteCardView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Image(uiImage: (UIImage(named: route.logo) ?? UIImage(systemName: "nosign")!))
+                Image(uiImage: (UIImage(named: route.logo) ?? UIImage(systemName: "nosign") ?? UIImage()))
                 VStack(alignment: .leading) {
                     CustomTextView(string: route.company, size: 17, weight: .regular, color: UIColor.blackUniversal)
                     CustomTextView(string: route.transfer, size: 12, weight: .regular, color: UIColor.redUniversal)
