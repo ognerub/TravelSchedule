@@ -10,19 +10,33 @@ import SwiftUI
 struct InfinityWidthButtonView: View {
     
     @State var string: String
+    @Binding var isRedDotVisible: Bool
     
     var body: some View {
-        Text(string)
-            .foregroundColor(Color.init(UIColor.whiteUniversal))
-            .font(Font.system(size: 17, weight: .bold))
-            .frame(maxWidth: .infinity)
-            .frame(height: 60)
-            .background(Color.init(UIColor.blueUniversal))
-            .cornerRadius(16)
-            .padding(.horizontal, 16)
+        HStack {
+            Text(string)
+            Rectangle()
+                .frame(width: 8, height: 8)
+                .cornerRadius(8)
+                .foregroundColor(Color.init(uiColor: UIColor.redUniversal))
+                .opacity(isRedDotVisible ? 1 : 0)
+        }
+        .foregroundColor(Color.init(UIColor.whiteUniversal))
+        .font(Font.system(size: 17, weight: .bold))
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
+        .background(Color.init(UIColor.blueUniversal))
+        .cornerRadius(16)
+        .padding(.horizontal, 16)
     }
 }
 
 #Preview {
-    InfinityWidthButtonView(string: Localization.Schedule.SpecifyButtonView.filter)
+    struct InfinityWidthButtonPreviewContainer : View {
+        @State private var isRedDotVisible = true
+        var body: some View {
+            InfinityWidthButtonView(string: Localization.Schedule.SpecifyButtonView.filter, isRedDotVisible: $isRedDotVisible)
+        }
+    }
+    return InfinityWidthButtonPreviewContainer()
 }

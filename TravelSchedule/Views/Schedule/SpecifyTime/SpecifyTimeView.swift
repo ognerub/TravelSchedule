@@ -34,8 +34,8 @@ struct SpecifyTimeView: View {
                 })
                 .frame(height: 60)
                 Section(content: {
-                    ToogleCircleView(isOn: !$isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.yes)
-                    ToogleCircleView(isOn: $isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.no)
+                    ToogleCircleView(isOn: $isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.yes)
+                    ToogleCircleView(isOn: !$isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.no)
                 }, header: {
                     CustomTextView(string: Localization.Schedule.SpecifyTimeView.showTransfers, size: 24, weight: .bold, color: UIColor.blackDay)
                 })
@@ -46,7 +46,8 @@ struct SpecifyTimeView: View {
         VStack {
             Spacer()
             Button(action: dismissView, label: {
-                InfinityWidthButtonView(string: Localization.Schedule.SpecifyTimeView.apply)
+                InfinityWidthButtonView(string: Localization.Schedule.SpecifyTimeView.apply,
+                                        isRedDotVisible: Binding(projectedValue: .constant(false)))
             })
         }
     }
@@ -56,12 +57,13 @@ struct SpecifyTimeView: View {
     }
 }
 #Preview {
-    struct SpecifyTimePreviewContainer : View {
+    struct  SpecifyTimePreviewContainer : View {
         @State private var isMorningFilterOn = false
         @State private var isAfternoonFilterOn = false
         @State private var isEveningFilterOn = false
         @State private var isNightFilterOn = false
         @State private var isTransfersFilterOn = false
+        @State private var isRedDotVisible = false
         var body: some View {
             SpecifyTimeView(
                 isMorningFilterOn: $isMorningFilterOn,
@@ -72,7 +74,7 @@ struct SpecifyTimeView: View {
             )
         }
     }
-    return SpecifyTimePreviewContainer()
+    return  SpecifyTimePreviewContainer()
 }
 
 prefix func ! (value: Binding<Bool>) -> Binding<Bool> {

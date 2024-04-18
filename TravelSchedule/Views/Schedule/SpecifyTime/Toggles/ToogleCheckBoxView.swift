@@ -24,15 +24,18 @@ struct ToogleCheckBoxView: View {
 
 #Preview {
     struct ToogleCheckBoxPreviewContainer : View {
-        @State private var value = false
+        @State var isOn: Bool = true
         var body: some View {
-            ToogleCheckBoxView(isOn: $value, label: "Afternoon")
+            ToogleCheckBoxView(isOn: $isOn, label: "Afternoon")
         }
     }
     return ToogleCheckBoxPreviewContainer()
 }
 
 struct ToggleCheckboxStyle: ToggleStyle {
+    
+    var action: ()
+    
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()

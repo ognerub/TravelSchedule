@@ -24,15 +24,16 @@ struct ToogleCircleView: View {
 
 #Preview {
     struct ToogleCirclePreviewContainer : View {
-        @State private var value = false
+        @State var isOn: Bool = true
         var body: some View {
-            ToogleCircleView(isOn: $value, label: "Circle toogle")
+            ToogleCircleView(isOn: $isOn, label: "Circle toogle")
         }
     }
     return ToogleCirclePreviewContainer()
 }
 
 struct ToggleCircleStyle: ToggleStyle {
+    
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
