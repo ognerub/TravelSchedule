@@ -11,6 +11,11 @@ import SwiftUI
 
 struct RoutesListView: View {
     
+    @State var isMorningFilterOn = false
+    @State var isAfternoonFilterOn = false
+    @State var isEveningFilterOn = false
+    @State var isNightFilterOn = false
+    @State var isTransfersFilterOn = false
     @State var fromToString: String
     @StateObject var viewModel = RoutesListViewModel()
     
@@ -37,9 +42,6 @@ struct RoutesListView: View {
                                 }, label: {
                                     RouteCardView(route: route)
                                 })
-                                
-                                //.navigationTitle(Localization.CarrierCardView.Navigation.title)
-                                //.toolbarRole(.editor)
                             }
                         }
                     }
@@ -50,8 +52,15 @@ struct RoutesListView: View {
             VStack {
                 Spacer()
                 NavigationLink(destination: {
-                    SpecifyTimeView()
-                }, label: {
+                    SpecifyTimeView(
+                        isMorningFilterOn: $isMorningFilterOn,
+                        isAfternoonFilterOn: $isAfternoonFilterOn,
+                        isEveningFilterOn: $isEveningFilterOn,
+                        isNightFilterOn: $isNightFilterOn,
+                        isTransfersFilterOn: $isTransfersFilterOn
+                    )
+                },
+                               label: {
                     InfinityWidthButtonView(string: Localization.Schedule.SpecifyButtonView.filter)
                 })
                 .navigationTitle("")

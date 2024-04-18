@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SpecifyTimeView: View {
     
-    @State private var isMorningFilterOn = false
-    @State private var isAfternoonFilterOn = false
-    @State private var isEveningFilterOn = false
-    @State private var isNightFilterOn = false
-    @State private var isTransfersFilterOn = false
-    
     @Environment(\.dismiss) private var dismiss
+    
+    @Binding var isMorningFilterOn: Bool
+    @Binding var isAfternoonFilterOn: Bool
+    @Binding var isEveningFilterOn: Bool
+    @Binding var isNightFilterOn: Bool
+    @Binding var isTransfersFilterOn: Bool
     
     var body: some View {
         ZStack {
@@ -55,9 +55,24 @@ struct SpecifyTimeView: View {
         dismiss()
     }
 }
-
 #Preview {
-    SpecifyTimeView()
+    struct SpecifyTimePreviewContainer : View {
+        @State private var isMorningFilterOn = false
+        @State private var isAfternoonFilterOn = false
+        @State private var isEveningFilterOn = false
+        @State private var isNightFilterOn = false
+        @State private var isTransfersFilterOn = false
+        var body: some View {
+            SpecifyTimeView(
+                isMorningFilterOn: $isMorningFilterOn,
+                isAfternoonFilterOn: $isAfternoonFilterOn,
+                isEveningFilterOn: $isEveningFilterOn,
+                isNightFilterOn: $isNightFilterOn,
+                isTransfersFilterOn: $isTransfersFilterOn
+            )
+        }
+    }
+    return SpecifyTimePreviewContainer()
 }
 
 prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
@@ -65,70 +80,4 @@ prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
         get: { !value.wrappedValue },
         set: { value.wrappedValue = !$0 }
     )
-}
-
-struct ToogleCheckBoxView: View {
-    
-    @Binding var isOn: Bool
-    @State var label: String
-    
-    var body: some View {
-        Toggle(isOn: $isOn) {
-            Text(label)
-                .font(Font.system(size: 17, weight: .regular))
-                .foregroundColor(Color.init(uiColor: UIColor.blackDay))
-        }
-        .toggleStyle(CheckboxToggleStyle())
-    }
-}
-
-struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle()
-        }, label: {
-            HStack {
-                configuration.label
-                Spacer()
-                Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
-                    .tint(Color.init(uiColor: UIColor.blackDay))
-            }
-        })
-    }
-}
-
-struct ToogleCircleView: View {
-    
-    @Binding var isOn: Bool
-    @State var label: String
-    
-    var body: some View {
-        Toggle(isOn: $isOn) {
-            Text(label)
-                .font(Font.system(size: 17, weight: .regular))
-                .foregroundColor(Color.init(uiColor: UIColor.blackDay))
-        }
-        .toggleStyle(CircleToggleStyle())
-    }
-}
-
-struct CircleToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle()
-        }, label: {
-            HStack {
-                configuration.label
-                Spacer()
-                Image(systemName: configuration.isOn ? "smallcircle.filled.circle" : "circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
-                    .tint(Color.init(uiColor: UIColor.blackDay))
-            }
-        })
-    }
 }

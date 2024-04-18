@@ -20,6 +20,8 @@
 		811D37DC2BD1397B001B080D /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811D37DB2BD1397B001B080D /* CustomTextView.swift */; };
 		811D37E02BD13A4B001B080D /* CarrierLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811D37DF2BD13A4B001B080D /* CarrierLogoView.swift */; };
 		811D37E32BD13A7D001B080D /* CarrierContactTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811D37E22BD13A7D001B080D /* CarrierContactTextView.swift */; };
+		8148C8FD2BD164AF0003FDD1 /* ToogleCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148C8FC2BD164AF0003FDD1 /* ToogleCheckBoxView.swift */; };
+		8148C9052BD168B80003FDD1 /* ToogleCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148C9042BD168B80003FDD1 /* ToogleCircleView.swift */; };
 		81A405BC2BC30857000D8EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405BB2BC30857000D8EE4 /* ContentView.swift */; };
 		81A405C72BC32134000D8EE4 /* TravelScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */; };
 		81A405CD2BC3270F000D8EE4 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81A405CC2BC3270F000D8EE4 /* swiftgen.yml */; };
@@ -84,6 +86,8 @@
 		811D37DB2BD1397B001B080D /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		811D37DF2BD13A4B001B080D /* CarrierLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierLogoView.swift; sourceTree = "<group>"; };
 		811D37E22BD13A7D001B080D /* CarrierContactTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierContactTextView.swift; sourceTree = "<group>"; };
+		8148C8FC2BD164AF0003FDD1 /* ToogleCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleCheckBoxView.swift; sourceTree = "<group>"; };
+		8148C9042BD168B80003FDD1 /* ToogleCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleCircleView.swift; sourceTree = "<group>"; };
 		81A405BB2BC30857000D8EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScheduleApp.swift; sourceTree = "<group>"; };
 		81A405CC2BC3270F000D8EE4 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -163,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				810AFE372BCC4BE000D3D184 /* SpecifyTimeView.swift */,
-				810AFE292BCC3BCD00D3D184 /* InfinityWidthButtonView.swift */,
+				8148C9022BD168900003FDD1 /* Toggles */,
 			);
 			path = SpecifyTime;
 			sourceTree = "<group>";
@@ -189,6 +193,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		8148C9022BD168900003FDD1 /* Toggles */ = {
+			isa = PBXGroup;
+			children = (
+				8148C8FC2BD164AF0003FDD1 /* ToogleCheckBoxView.swift */,
+				8148C9042BD168B80003FDD1 /* ToogleCircleView.swift */,
+			);
+			path = Toggles;
+			sourceTree = "<group>";
+		};
 		81A405D92BC476D4000D8EE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +219,7 @@
 				81A405BB2BC30857000D8EE4 /* ContentView.swift */,
 				810AFE502BCDB1C000D3D184 /* Settings */,
 				81A405FC2BC66DB9000D8EE4 /* Schedule */,
+				810AFE292BCC3BCD00D3D184 /* InfinityWidthButtonView.swift */,
 				811D37DB2BD1397B001B080D /* CustomTextView.swift */,
 			);
 			path = Views;
@@ -451,9 +465,11 @@
 			files = (
 				810AFE552BCDB2CC00D3D184 /* NoNetworkView.swift in Sources */,
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
+				8148C9052BD168B80003FDD1 /* ToogleCircleView.swift in Sources */,
 				810AFE382BCC4BE000D3D184 /* SpecifyTimeView.swift in Sources */,
 				81B953FE2BCB2444005AF285 /* StationSelectionViewModel.swift in Sources */,
 				81A405F42BC66D12000D8EE4 /* FromToView.swift in Sources */,
+				8148C8FD2BD164AF0003FDD1 /* ToogleCheckBoxView.swift in Sources */,
 				CE9E646F2B9E1FE100A2134A /* String+Extensions.swift in Sources */,
 				81A405C72BC32134000D8EE4 /* TravelScheduleApp.swift in Sources */,
 				CECCF5B92BA033B700D9067C /* CarriersInformationService.swift in Sources */,

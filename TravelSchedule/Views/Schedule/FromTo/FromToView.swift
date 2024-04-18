@@ -17,10 +17,10 @@ struct FromToView: View {
     var body: some View {
         HStack {
             VStack(spacing: 0) {
-                NavigationLink(value: "TopTextFieldView", label: {
+                NavigationLink(value: NavigationIdentifiers.topTextFieldView.rawValue, label: {
                     TextFieldView(string: $fromString, type: .top)
                 })
-                NavigationLink(value: "BottomTextFieldView", label: {
+                NavigationLink(value: NavigationIdentifiers.bottomTextFieldView.rawValue, label: {
                     TextFieldView(string: $toString, type: .bottom)
                 })
             }
@@ -33,7 +33,7 @@ struct FromToView: View {
         .background(Color.init(UIColor.blueUniversal))
         .cornerRadius(16)
         .padding(16)
-        NavigationLink(value: "SearchButtonView", label: {
+        NavigationLink(value: NavigationIdentifiers.searchButtonView.rawValue, label: {
             SearchButtonView()
         })
         .opacity(isSearchButtonVisible ? 1 : 0)

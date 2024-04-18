@@ -29,13 +29,8 @@ struct CitySelectionView: View {
                 .background(
                     NavigationLink(city.name, destination: StationSelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: $isFromStringWasSelected, selectedCity: city.name)
                                   )
+                    .opacity(0)
                 )
-                .navigationDestination(for: String.self) { id in
-                    if id == city.name {
-                        CitySelectionView(path: $path, fromString: $fromString, toString: $toString, isFromStringWasSelected: true)
-                            .toolbarRole(.navigationStack)
-                    }
-                }
             }
             .frame(height: 60)
             .listRowSeparator(.hidden, edges: .all)

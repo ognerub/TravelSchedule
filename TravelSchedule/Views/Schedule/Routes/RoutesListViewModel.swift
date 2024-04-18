@@ -20,5 +20,5 @@ class RoutesListViewModel: ObservableObject {
         RouteModel(id: UUID(), logo: "fgk", company: "FGK", transfer: "", date: "21 january", startTime: "01:15", endTime: "09:00", duration: "9 hours"),
         RouteModel(id: UUID(), logo: "url", company: "Ural Logistics", transfer: "", date: "22 january", startTime: "12:30", endTime: "21:00", duration: "9 hours")
     ]
-    
+
 }
