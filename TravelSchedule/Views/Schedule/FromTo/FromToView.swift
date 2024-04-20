@@ -9,6 +9,12 @@ import SwiftUI
 
 struct FromToView: View {
     
+    private enum NavigationIdentifiers: String {
+        case topTextFieldView = "TopTextFieldView"
+        case bottomTextFieldView = "BottomTextFieldView"
+        case searchButtonView = "SearchButtonView"
+    }
+    
     @Binding var path: [String]
     @Binding var fromString: String
     @Binding var toString: String
@@ -52,12 +58,6 @@ struct FromToView: View {
                 CustomTextView(string: "Error navigation destination", size: 15, weight: .bold, color: UIColor.redUniversal)
             }
         }
-    }
-    
-    private enum NavigationIdentifiers: String {
-        case topTextFieldView = "TopTextFieldView"
-        case bottomTextFieldView = "BottomTextFieldView"
-        case searchButtonView = "SearchButtonView"
     }
     
     private func switchFromAndToStrings() {
