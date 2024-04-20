@@ -1,5 +1,15 @@
 {
+  "originHash" : "2329eb265864719ae88d18093ae0d93d4b5c97ab089a18b30f4a1a939eda8afb",
   "pins" : [
+    {
+      "identity" : "networkstate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rebeloper/NetworkState.git",
+      "state" : {
+        "revision" : "cae816e218d8a04d71dc3479ce059ed5380e9294",
+        "version" : "0.1.0"
+      }
+    },
     {
       "identity" : "openapikit",
       "kind" : "remoteSourceControl",
@@ -100,5 +110,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

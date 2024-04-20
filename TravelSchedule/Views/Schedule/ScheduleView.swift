@@ -9,16 +9,21 @@ import SwiftUI
 
 struct ScheduleView: View {
     
+    @Binding var path: [String]
+    
     @StateObject var viewModel = ScheduleViewModel()
     @State var isSearchButtonVisible: Bool = false
+    @State var fromString: String = Localization.Schedule.FromToView.from
+    @State var toString: String = Localization.Schedule.FromToView.to
     
     var body: some View {
         VStack {
             StoriesView()
-            FromToView()
-            SearchButtonView()
-                .opacity(isSearchButtonVisible ? 1 : 0)
+            FromToView(path: $path, fromString: $fromString, toString: $toString, isSearchButtonVisible: $isSearchButtonVisible)
             Spacer()
+        }
+        .onAppear {
+            isSearchButtonVisible = fromString != Localization.Schedule.FromToView.from && toString != Localization.Schedule.FromToView.to
         }
     }
     
@@ -28,5 +33,5 @@ struct ScheduleView: View {
 }
 
 #Preview {
-    ScheduleView()
+    ScheduleView(path: ContentView().$navPath)
 }

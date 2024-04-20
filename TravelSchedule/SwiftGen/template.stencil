@@ -6,7 +6,7 @@ import UIKit
 {% macro imagesBlock assets  %}
   {% for asset in assets %}
   {% if asset.type == "image" %}
-  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIImage = UIImage(named: "{{asset.value}}")!
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIImage = UIImage(named: "{{asset.value}}") ?? UIImage()
   {% elif asset.items %}
   {% call imagesBlock asset.items %}
   {% endif %}
@@ -15,7 +15,7 @@ import UIKit
 {% macro colorsBlock assets %}
   {% for asset in assets %}
   {% if asset.type == "color" %}
-  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIColor = UIColor(named: "{{asset.value}}")!
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIColor = UIColor(named: "{{asset.value}}") ?? UIColor()
   {% elif asset.items %}
   {% call colorsBlock asset.items %}
   {% endif %}

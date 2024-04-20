@@ -9,20 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @AppStorage("appearanceSelection") var appearanceSelection: Int = 0
+    
     @State private var selection = 0
+    @State var navPath: [String] = []
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $navPath) {
             TabView(selection: $selection) {
-                ScheduleView()
+                ScheduleView(path: $navPath)
                     .tabItem { Image(.scheduleTabIcon) }
                     .tag(0)
-                Text("Settings")
-                    .tabItem { Image(.settingsTabIcon) }
-                    .tag(1)
+                SettingsView(appearanceSelection: $appearanceSelection)
+                .tabItem { Image(.settingsTabIcon) }
+                .tag(1)
             }
-            .tint(.black)
+            .tint(Color.init(UIColor.blackDay))
         }
+        .tint(Color.init(UIColor.blackDay))
     }
 }
 
