@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct StoryModel: Identifiable {
-    let id: UUID
+    let id: Int
     let name: String
     let images: [String]
+    let title: String
+    let description: String
+    var isShown: Bool
 }
