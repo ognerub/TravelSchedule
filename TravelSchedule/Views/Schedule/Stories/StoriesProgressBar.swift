@@ -12,10 +12,14 @@ struct StoriesProgressBar: View {
     let storiesCount: Int
     let timerConfiguration: TimerConfiguration
     @Binding var currentProgress: CGFloat
-    @State private var timer: Timer.TimerPublisher
+    @State private var timer: Timer.TimerPublisher = .init(interval: 0.3, runLoop: .main, mode: .common)
     @State private var cancellable: Cancellable?
 
-    init(storiesCount: Int, timerConfiguration: TimerConfiguration, currentProgress: Binding<CGFloat>) {
+  init(
+    storiesCount: Int,
+    timerConfiguration: TimerConfiguration,
+    currentProgress: Binding<CGFloat>
+  ) {
         self.storiesCount = storiesCount
         self.timerConfiguration = timerConfiguration
         self._currentProgress = currentProgress
