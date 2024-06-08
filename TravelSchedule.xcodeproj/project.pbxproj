@@ -22,6 +22,11 @@
 		811D37E32BD13A7D001B080D /* CarrierContactTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811D37E22BD13A7D001B080D /* CarrierContactTextView.swift */; };
 		8148C8FD2BD164AF0003FDD1 /* ToogleCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148C8FC2BD164AF0003FDD1 /* ToogleCheckBoxView.swift */; };
 		8148C9052BD168B80003FDD1 /* ToogleCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148C9042BD168B80003FDD1 /* ToogleCircleView.swift */; };
+		8175B74A2C08FFEF00D7DB3F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B7492C08FFEF00D7DB3F /* StoryView.swift */; };
+		8175B7592C0B930000D7DB3F /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B7582C0B930000D7DB3F /* ProgressBarView.swift */; };
+		8175B75C2C0B94CA00D7DB3F /* TimerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B75B2C0B94CA00D7DB3F /* TimerConfiguration.swift */; };
+		8175B7612C0B9CD200D7DB3F /* StoriesTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B7602C0B9CD200D7DB3F /* StoriesTabView.swift */; };
+		8175B7672C0B9E4C00D7DB3F /* StoriesProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B7662C0B9E4C00D7DB3F /* StoriesProgressBar.swift */; };
 		81A405BC2BC30857000D8EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405BB2BC30857000D8EE4 /* ContentView.swift */; };
 		81A405C72BC32134000D8EE4 /* TravelScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */; };
 		81A405CD2BC3270F000D8EE4 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81A405CC2BC3270F000D8EE4 /* swiftgen.yml */; };
@@ -88,6 +93,11 @@
 		811D37E22BD13A7D001B080D /* CarrierContactTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierContactTextView.swift; sourceTree = "<group>"; };
 		8148C8FC2BD164AF0003FDD1 /* ToogleCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleCheckBoxView.swift; sourceTree = "<group>"; };
 		8148C9042BD168B80003FDD1 /* ToogleCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleCircleView.swift; sourceTree = "<group>"; };
+		8175B7492C08FFEF00D7DB3F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		8175B7582C0B930000D7DB3F /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		8175B75B2C0B94CA00D7DB3F /* TimerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfiguration.swift; sourceTree = "<group>"; };
+		8175B7602C0B9CD200D7DB3F /* StoriesTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTabView.swift; sourceTree = "<group>"; };
+		8175B7662C0B9E4C00D7DB3F /* StoriesProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesProgressBar.swift; sourceTree = "<group>"; };
 		81A405BB2BC30857000D8EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81A405C62BC32134000D8EE4 /* TravelScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScheduleApp.swift; sourceTree = "<group>"; };
 		81A405CC2BC3270F000D8EE4 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -250,8 +260,13 @@
 		81A405FF2BC66DC4000D8EE4 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				8175B7492C08FFEF00D7DB3F /* StoryView.swift */,
 				81A405F62BC66D49000D8EE4 /* StoriesView.swift */,
+				8175B7602C0B9CD200D7DB3F /* StoriesTabView.swift */,
+				8175B7662C0B9E4C00D7DB3F /* StoriesProgressBar.swift */,
 				81A405E72BC47B19000D8EE4 /* StoryCardView.swift */,
+				8175B7582C0B930000D7DB3F /* ProgressBarView.swift */,
+				8175B75B2C0B94CA00D7DB3F /* TimerConfiguration.swift */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -473,6 +488,7 @@
 			files = (
 				810AFE552BCDB2CC00D3D184 /* NoNetworkView.swift in Sources */,
 				849981192B9C8FAA006828B4 /* SheduleViewController.swift in Sources */,
+				8175B7612C0B9CD200D7DB3F /* StoriesTabView.swift in Sources */,
 				8148C9052BD168B80003FDD1 /* ToogleCircleView.swift in Sources */,
 				810AFE382BCC4BE000D3D184 /* SpecifyTimeView.swift in Sources */,
 				81B953FE2BCB2444005AF285 /* StationSelectionViewModel.swift in Sources */,
@@ -494,6 +510,7 @@
 				81A405DE2BC476EA000D8EE4 /* StoryModel.swift in Sources */,
 				811D37D92BD138F6001B080D /* FromToTexField.swift in Sources */,
 				81A4060E2BC67383000D8EE4 /* Localization.swift in Sources */,
+				8175B75C2C0B94CA00D7DB3F /* TimerConfiguration.swift in Sources */,
 				810AFE3E2BCCCA1900D3D184 /* CarrierCardViewModel.swift in Sources */,
 				CECCF5B32B9F3F3A00D9067C /* UIBlockingProgressHUD.swift in Sources */,
 				CECCF5BD2BA0424400D9067C /* StationsList.swift in Sources */,
@@ -506,6 +523,7 @@
 				811D37E02BD13A4B001B080D /* CarrierLogoView.swift in Sources */,
 				849981152B9C8FAA006828B4 /* AppDelegate.swift in Sources */,
 				81B954042BCBDEFF005AF285 /* RoutesListViewModel.swift in Sources */,
+				8175B7672C0B9E4C00D7DB3F /* StoriesProgressBar.swift in Sources */,
 				849981172B9C8FAA006828B4 /* SceneDelegate.swift in Sources */,
 				CE9E64612B9E0FE100A2134A /* NearestStationsService.swift in Sources */,
 				CEFBA2FF2B9E544D00269012 /* NetworkConstants.swift in Sources */,
@@ -519,6 +537,8 @@
 				811D37E32BD13A7D001B080D /* CarrierContactTextView.swift in Sources */,
 				81A405D62BC47502000D8EE4 /* StoriesSingleView.swift in Sources */,
 				81B954092BCBE0D1005AF285 /* StationModel.swift in Sources */,
+				8175B7592C0B930000D7DB3F /* ProgressBarView.swift in Sources */,
+				8175B74A2C08FFEF00D7DB3F /* StoryView.swift in Sources */,
 				CEFBA3022B9EE90C00269012 /* ScheduleOnStationService.swift in Sources */,
 				81A405F72BC66D49000D8EE4 /* StoriesView.swift in Sources */,
 				81A405BC2BC30857000D8EE4 /* ContentView.swift in Sources */,

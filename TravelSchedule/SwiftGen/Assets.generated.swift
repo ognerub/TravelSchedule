@@ -6,6 +6,7 @@ import UIKit
 public extension UIImage {
   static let arrowRight: UIImage = UIImage(named: "arrowRight") ?? UIImage()
   static let change: UIImage = UIImage(named: "change") ?? UIImage()
+  static let close: UIImage = UIImage(named: "close") ?? UIImage()
   static let scheduleTabIcon: UIImage = UIImage(named: "scheduleTabIcon") ?? UIImage()
   static let settingsTabIcon: UIImage = UIImage(named: "settingsTabIcon") ?? UIImage()
   static let fgk: UIImage = UIImage(named: "fgk") ?? UIImage()

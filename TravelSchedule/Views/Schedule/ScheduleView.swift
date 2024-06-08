@@ -15,10 +15,11 @@ struct ScheduleView: View {
     @State var isSearchButtonVisible: Bool = false
     @State var fromString: String = Localization.Schedule.FromToView.from
     @State var toString: String = Localization.Schedule.FromToView.to
+    @State private var isStoriesPresented = false
     
     var body: some View {
         VStack {
-            StoriesView()
+          StoriesView(viewModel: viewModel, isStoriesPresented: $isStoriesPresented, timerConfiguration: TimerConfiguration(storiesCount: viewModel.stories.count))
             FromToView(path: $path, fromString: $fromString, toString: $toString, isSearchButtonVisible: $isSearchButtonVisible)
             Spacer()
         }
