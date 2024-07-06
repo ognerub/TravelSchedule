@@ -7,16 +7,19 @@
 
 import Foundation
 
+public enum Mocks {
+  static let stories: [StoryModel] = [
+    StoryModel(id: 0, name: "sp1", images: ["bs1", "bs2"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 1, name: "sp2", images: ["bs3", "bs4"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 2, name: "sp3", images: ["bs5", "bs6"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 3, name: "sp4", images: ["bs7", "bs8"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 4, name: "sp5", images: ["bs9", "bs10"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 5, name: "sp6", images: ["bs11", "bs12"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 6, name: "sp7", images: ["bs13", "bs14"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false),
+    StoryModel(id: 7, name: "sp8", images: ["bs15", "bs16"], title: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", description: "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text", isShown: false)
+  ]
+}
+
 final class ScheduleViewModel: ObservableObject {
-    
-    @Published var stories: [StoryModel] = [
-        StoryModel(id: UUID(), name: "sp1", images: ["_1", "_2"]),
-        StoryModel(id: UUID(), name: "sp2", images: ["_3", "_4"]),
-        StoryModel(id: UUID(), name: "sp3", images: ["_5", "_6"]),
-        StoryModel(id: UUID(), name: "sp4", images: ["_7", "_8"]),
-        StoryModel(id: UUID(), name: "sp5", images: ["_9", "_10"]),
-        StoryModel(id: UUID(), name: "sp6", images: ["_11", "_12"]),
-        StoryModel(id: UUID(), name: "sp7", images: ["_13", "_14"]),
-        StoryModel(id: UUID(), name: "sp8", images: ["_15", "_16"]),
-    ]
+    @Published var stories: [StoryModel] = Mocks.stories
 }

@@ -27,27 +27,7 @@ final class SheduleViewController: UIViewController {
         view.backgroundColor = .whiteDay
         view.addSubview(label)
         uiBlockingProgressHUD = UIBlockingProgressHUD(viewController: self)
-        // Select service
-        let service: Int = 7
         uiBlockingProgressHUD?.showCustom()
-        switch service {
-        case 1:
-            nearestStations()
-        case 2:
-            pointToPoint()
-        case 3:
-            scheduleOnStation()
-        case 4:
-            threadInformation()
-        case 5:
-            nearestSettlement()
-        case 6:
-            carriersInformation()
-        case 7:
-            stationsList()
-        default:
-            print("Wrong service number")
-        }
     }
 
     private func nearestStations() {
