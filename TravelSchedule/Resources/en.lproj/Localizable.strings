@@ -11,6 +11,7 @@
 "Schedule.FromToView.to" = "To";
 "Schedule.SearchButtonView.search" = "Search";
 "Schedule.SpecifyButtonView.filter" = "Specify time";
+"Schedule.transfer" = "With transfer in";
 
 /* MARK: City Selection */
 "CitySelection.Navigation.title" = "City selection";
@@ -36,4 +37,10 @@
 "Schedule.SpecifyTimeView.apply" = "Apply";
 
 /* MARK: CarrierCardView */
-"CarrierCardView.Navigation.title" = "Информация о перевозчике";
+"CarrierCardView.Navigation.title" = "Carrier information";
+"CarrierCardView.empty" = "No information";
+
+/* MARK: SettingsView */
+"SettingsView.darkTheme" = "Dark theme";
+"SettingsView.userAgreement" = "User agreement";
+"SettingsView.license" = "The application uses the Yandex.Schedules API \n Version 1.0 (beta)";

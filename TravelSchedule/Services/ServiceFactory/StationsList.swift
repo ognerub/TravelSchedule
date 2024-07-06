@@ -8,7 +8,6 @@
 import Foundation
 import OpenAPIRuntime
 import OpenAPIURLSession
-import SwiftSoup
 
 typealias StationsList = Components.Schemas.StationsList
 typealias Countries = StationsList.countriesPayloadPayload

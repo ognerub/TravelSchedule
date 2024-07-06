@@ -9,9 +9,11 @@ import Foundation
 public enum Localization {
 
     public enum CarrierCardView {
+        /// No information
+        public static let empty = localize("CarrierCardView.empty")
 
         public enum Navigation {
-            /// Информация о перевозчике
+            /// Carrier information
             public static let title = localize("CarrierCardView.Navigation.title")
         }
     }
@@ -40,6 +42,8 @@ public enum Localization {
     }
 
     public enum Schedule {
+        /// With transfer in 
+        public static let transfer = localize("Schedule.transfer")
 
         public enum FromToView {
             /// From
@@ -78,6 +82,15 @@ public enum Localization {
             /// Yes
             public static let yes = localize("Schedule.SpecifyTimeView.yes")
         }
+    }
+
+    public enum SettingsView {
+        /// Dark theme
+        public static let darkTheme = localize("SettingsView.darkTheme")
+        /// The application uses the Yandex.Schedules API \n Version 1.0 (beta)
+        public static let license = localize("SettingsView.license")
+        /// User agreement
+        public static let userAgreement = localize("SettingsView.userAgreement")
     }
 
     public enum StationSelection {

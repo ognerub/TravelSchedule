@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  TravelSchedule
+
+  Created by Alexander Ognerubov on 10.04.2024.
+  
+*/
+
+/* MARK: - Schedule */
+"Schedule.FromToView.from" = "Откуда";
+"Schedule.FromToView.to" = "Куда";
+"Schedule.SearchButtonView.search" = "Поиск";
+"Schedule.SpecifyButtonView.filter" = "Уточнить время";
+"Schedule.transfer" = "С пересадкой в";
+
+/* MARK: City Selection */
+"CitySelection.Navigation.title" = "Выбор города";
+"CitySelection.CitiesCodes.MOW" = "Москва";
+"CitySelection.CitiesCodes.LED" = "Санкт-Петербург";
+"CitySelection.CitiesCodes.AER" = "Сочи";
+"CitySelection.CitiesCodes.KRR" = "Краснодар";
+"CitySelection.CitiesCodes.KZN" = "Казань";
+"CitySelection.CitiesCodes.OMS" = "Омск";
+
+/* MARK: Station Selection */
+"StationSelection.Navigation.title" = "Выбор станции";
+
+/* MARK: SpecifyTime */
+"Schedule.SpecifyTimeView.departureTime" = "Время отправления";
+"Schedule.SpecifyTimeView.morning" = "Утро";
+"Schedule.SpecifyTimeView.afternoon" = "День";
+"Schedule.SpecifyTimeView.evening" = "Вечер";
+"Schedule.SpecifyTimeView.night" = "Ночь";
+"Schedule.SpecifyTimeView.showTransfers" = "Показать маршруты с пересадками";
+"Schedule.SpecifyTimeView.yes" = "Да";
+"Schedule.SpecifyTimeView.no" = "Нет";
+"Schedule.SpecifyTimeView.apply" = "Применить";
+
+/* MARK: CarrierCardView */
+"CarrierCardView.Navigation.title" = "Информация о перевозчике";
+"CarrierCardView.empty" = "Не указано";
+
+/* MARK: SettingsView */
+"SettingsView.darkTheme" = "Темная тема";
+"SettingsView.userAgreement" = "Пользовательское соглашение";
+"SettingsView.apiUsage" = "Приложение использует API Яндекс.Расписания \n Версия 1.0 (бета)";
+

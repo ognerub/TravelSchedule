@@ -31,7 +31,8 @@ final class PointToPointService: PointToPointProtocol, APIService {
             from: from,
             to: to,
             page: page,
-            date: date
+            date: date,
+            transfers: true
         ))
         return try response.ok.body.json
     }
