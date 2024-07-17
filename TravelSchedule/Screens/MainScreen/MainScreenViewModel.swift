@@ -7,21 +7,22 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 @MainActor
 final class MainScreenViewModel: ObservableObject {
 
     var realmStorageService: RealmStorageProtocol
 
-    @Published var navPath: [String] = []
-    @Published var isLoading: Bool = false
-
     @Binding var appearanceSelection: Int
 
-    var сountries = [RealmCountry]()
+    @Published var navPath: [String] = []
+    @Published var isLoading: Bool = false
+    @Published var error: String?
+    @Published var сountries = [RealmCountry]()
 
     private let networkService = NetworkService()
-
+    private var cancellables = Set<AnyCancellable>()
     private var window: UIWindow? {
         let allScenes = UIApplication.shared.connectedScenes
         for scene in allScenes {
@@ -39,60 +40,38 @@ final class MainScreenViewModel: ObservableObject {
     }
 
     func getStations() {
-        print("Get stations")
         if сountries.isEmpty {
             Task {
-                do {
-                    print("Create network service")
-                    guard let service = await networkService.createStationsListService() else { return }
-                    print("Show loading process and block user UI")
-                    isStations(loaded: false)
-                    print("CHECK IS REALM EMPTY")
-                    let isRealmEmpty = await realmStorageService.checkIsRealmEmpty()
-                    print("REALM IS \(isRealmEmpty ? "EMPTY" : "NOT EMPTY!")")
-                    if isRealmEmpty {
-                        print("Create task")
-                        let response = try await service.getListOfAllStations()
-                        print("Got response")
-                        var responseCountries: [Countries] = response.countries ?? []
-                        let targetCountyName = "Россия"
-                        if let targetIndex = responseCountries.firstIndex(where: { $0.title == targetCountyName }) {
-                            let targetCounty = responseCountries.remove(at: targetIndex)
-                            responseCountries.insert(targetCounty, at: 0)
-                        }
-                        print("Assign response to current countries array")
-                        print("Write to Realm begins")
-                        await realmStorageService.tryRealmWrite(responseCountries: responseCountries)
-                        print("Write to Realm over")
-                    }
+                guard let service = await networkService.createStationsListService() else { return }
+                isStations(loaded: false)
+                let isRealmEmpty = realmStorageService.checkIsRealmEmpty()
+                if isRealmEmpty {
+                    var responseCountries = [Countries]()
+                    service.getListOfAllStationsCombine()
+                        .receive(on: DispatchQueue.main)
+                        .sink(receiveCompletion: { [weak self] completion in
+                            switch completion {
+                            case .failure(let error):
+                                self?.error = error.localizedDescription
+                            case .finished:
+                                break
+                            }
+                        }, receiveValue: { [weak self] stationsList in
+                            guard let self else { return }
+                            responseCountries = stationsList.countries ?? []
+                            self.realmStorageService.tryRealmWrite(responseCountries: responseCountries)
+                            self.сountries = self.realmStorageService.сountries
+                            self.isStations(loaded: true)
+                        })
+                        .store(in: &cancellables)
+                } else {
                     сountries = realmStorageService.сountries
-                    isStations(loaded: true)
-                } catch let DecodingError.dataCorrupted(context) {
-                    print(context)
-                    isStations(loaded: true)
-                } catch let DecodingError.keyNotFound(key, context) {
-                    print("Key '\(key)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                    isStations(loaded: true)
-                } catch let DecodingError.valueNotFound(value, context) {
-                    isLoading = false
-                    print("Value '\(value)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                    isStations(loaded: true)
-                } catch let DecodingError.typeMismatch(type, context)  {
-                    isLoading = false
-                    print("Type '\(type)' mismatch:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                    isStations(loaded: true)
-                } catch {
-                    isLoading = false
-                    print("❌ ERROR: \(error.localizedDescription)")
                     isStations(loaded: true)
                 }
             }
         }
     }
-    
+
     private func isStations(loaded: Bool) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
