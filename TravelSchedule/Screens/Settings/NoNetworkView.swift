@@ -13,13 +13,31 @@ struct NoNetworkView: View {
         case noInternet
         case serverError
     }
-    
+
+    let action: (() -> Void)?
+
     @State var errorType: NetworkErrorType
     
     var body: some View {
-        Image(uiImage: getImage())
-        CustomTextView(string: getTitle(), size: 24, weight: .bold, color: UIColor.blackDay)
-            .padding(16)
+        ZStack {
+            VStack{
+                Image(uiImage: getImage())
+                CustomTextView(string: getTitle(), size: 24, weight: .bold, color: UIColor.blackDay)
+                    .padding(16)
+            }
+            VStack(alignment: .leading) {
+                Button(action: {
+                    (action ?? { })()
+                }, label: {
+                    Image(uiImage: UIImage(systemName: "xmark") ?? UIImage())
+                })
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(20)
+                Spacer()
+            }
+            .opacity(action != nil ? 1 : 0)
+        }
+
     }
     
     private func getTitle() -> String {
@@ -42,5 +60,5 @@ struct NoNetworkView: View {
 }
 
 #Preview {
-    NoNetworkView(errorType: .serverError)
+    NoNetworkView(action: nil, errorType: .serverError)
 }

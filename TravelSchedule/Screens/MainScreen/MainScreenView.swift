@@ -24,14 +24,23 @@ struct MainScreenView: View {
                         .tag(1)
                 }
                 .tint(Color.init(UIColor.blackDay))
-                ProgressView()
-                    .opacity(viewModel.isLoading ? 1 : 0)
+                VStack {
+                    ProgressView()
+                    Text(viewModel.printOutput)
+                }
+                .opacity(viewModel.isLoading ? 1 : 0)
             }
             .tint(Color.init(UIColor.blackDay))
         }
         .onAppear {
             viewModel.getStations()
         }
+        .sheet(isPresented: $viewModel.error, content: {
+            NoNetworkView(action: {
+                viewModel.error = false
+                viewModel.getStations()
+            }, errorType: .serverError)
+        })
     }
 }
 

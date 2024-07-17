@@ -40,6 +40,7 @@
 		811C7C642C395A610071D9C4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811C7C402C395A610071D9C4 /* WebView.swift */; };
 		811C7C652C395A610071D9C4 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811C7C422C395A610071D9C4 /* CustomTextView.swift */; };
 		811C7C662C395A610071D9C4 /* InfinityWidthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811C7C432C395A610071D9C4 /* InfinityWidthButtonView.swift */; };
+		812BBF7E2C47D50B00FF52EB /* PrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBF7D2C47D50B00FF52EB /* PrintManager.swift */; };
 		81391FCD2C454C3C001B7E14 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 81391FCB2C454C3C001B7E14 /* Localizable.stringsdict */; };
 		81391FD12C455F58001B7E14 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81391FD02C455F58001B7E14 /* SVGKit */; };
 		81391FD32C455F58001B7E14 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81391FD22C455F58001B7E14 /* SVGKitSwift */; };
@@ -118,6 +119,7 @@
 		811C7C402C395A610071D9C4 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		811C7C422C395A610071D9C4 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		811C7C432C395A610071D9C4 /* InfinityWidthButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfinityWidthButtonView.swift; sourceTree = "<group>"; };
+		812BBF7D2C47D50B00FF52EB /* PrintManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintManager.swift; sourceTree = "<group>"; };
 		81391FCC2C454C3C001B7E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		81391FD52C45602A001B7E14 /* SVGAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGAsyncImage.swift; sourceTree = "<group>"; };
 		81391FD82C458CEC001B7E14 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				811C7C1A2C395A610071D9C4 /* MainScreenView.swift */,
 				811C7C1B2C395A610071D9C4 /* MainScreenViewModel.swift */,
+				812BBF7D2C47D50B00FF52EB /* PrintManager.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				811C7C592C395A610071D9C4 /* ProgressBarView.swift in Sources */,
 				811C7C642C395A610071D9C4 /* WebView.swift in Sources */,
 				811C7C522C395A610071D9C4 /* StationSelectionViewModel.swift in Sources */,
+				812BBF7E2C47D50B00FF52EB /* PrintManager.swift in Sources */,
 				CEFBA3022B9EE90C00269012 /* ScheduleOnStationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,7 @@ struct SettingsView: View {
                         }
                     })
                 } else {
-                    NoNetworkView(errorType: .noInternet)
+                    NoNetworkView(action: { }, errorType: .noInternet)
                 }
             }, label: {
                 HStack {

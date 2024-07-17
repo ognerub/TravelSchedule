@@ -10,8 +10,8 @@ import RealmSwift
 
 protocol RealmStorageProtocol {
     var сountries: [RealmCountry] { get set }
-    func checkIsRealmEmpty() async -> Bool
-    func tryRealmWrite(responseCountries: [Countries]) async
+    func checkIsRealmEmpty() -> Bool
+    func tryRealmWrite(responseCountries: [Countries])
 }
 
 final class RealmStorageService: RealmStorageProtocol {
@@ -19,11 +19,11 @@ final class RealmStorageService: RealmStorageProtocol {
     var сountries = [RealmCountry]()
     @ObservedResults(RealmCountry.self) var realmCountriesList // Realm
 
-    func checkIsRealmEmpty() async -> Bool {
+    func checkIsRealmEmpty() -> Bool {
         var isRealmEmpty = true
         do {
             print("check Realm")
-            let realm = try await Realm()
+            let realm = try Realm()
             print("get Realm countries")
             let realmCountries = realm.objects(RealmCountry.self)
             if realmCountries.count > 0 {
@@ -39,12 +39,12 @@ final class RealmStorageService: RealmStorageProtocol {
         return isRealmEmpty
     }
 
-    func tryRealmWrite(responseCountries: [Countries]) async {
+    func tryRealmWrite(responseCountries: [Countries]) {
         do {
-            let realm = try await Realm()
+            let realm = try Realm()
             try realm.write {
                 // COUNTRIES
-                print("There is \(responseCountries.count) countries to write")
+                PrintManager.shared.print("There is \(responseCountries.count) countries to write")
                 responseCountries.enumerated().forEach { (index, country) in
                     let realmCountry = RealmCountry()
                     realmCountry.title = country.title ?? ""
@@ -98,7 +98,7 @@ final class RealmStorageService: RealmStorageProtocol {
                         realmCountry.regions.append(realmRegion)
                     }
                     realm.add(realmCountry)
-                    print("\(index)/\(responseCountries.count) over")
+                    PrintManager.shared.print("\(index)/\(responseCountries.count) over")
                 }
             }
         } catch {
