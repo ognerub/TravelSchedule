@@ -24,8 +24,6 @@ final class StationsListService: @unchecked Sendable, StationsListServiceProtoco
     let client: Client
     let  apikey: String
 
-
-
     init(client: Client, apikey: String) {
         self.client = client
         self.apikey = apikey
