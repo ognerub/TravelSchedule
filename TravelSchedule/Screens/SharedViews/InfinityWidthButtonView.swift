@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfinityWidthButtonView: View {
     
-    @State var string: String
+    let string: String
     @Binding var isRedDotVisible: Bool
     
     var body: some View {

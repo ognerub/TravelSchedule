@@ -6,52 +6,28 @@
 //
 
 import SwiftUI
-import SVGKit
 
-struct SVGAsyncImage: View {
+struct SVGAsyncImage: Sendable, View {
+    
     let url: URL?
-
-    @State private var image: SVGKImage? = nil
-    @State private var isLoading = true
-
+    
+    @ObservedObject var viewModel = SVGAsyncImageViewModel()
+    
     var body: some View {
         Group {
-            if let image = image {
+            if let image = viewModel.image {
                 Image(uiImage: image.uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-            } else if isLoading {
+            } else if viewModel.isLoading {
                 ProgressView()
             } else {
                 Image(systemName: "nosign")
             }
         }
-        .onAppear {
-            loadSVGImage()
+        .task {
+            await viewModel.loadSVGImage(url: url)
         }
-    }
-
-    private func loadSVGImage() {
-        guard let url = url else { return }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                let svgImage = SVGKImage(data: data)
-                DispatchQueue.main.async {
-                    self.image = svgImage
-                    self.isLoading = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
-            }
-            if let error = error {
-                print("error to load image \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
-            }
-        }.resume()
     }
 }
 

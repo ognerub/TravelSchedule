@@ -11,20 +11,17 @@ import OpenAPIURLSession
 
 typealias PointToPoint = Components.Schemas.PointToPoint
 
-protocol PointToPointProtocol {
-    func getPointToPoint(from: String, to: String, page: String, date: String) async throws -> PointToPoint
-}
-
-final class PointToPointService: PointToPointProtocol, APIService {
+actor PointToPointService: Sendable, APIService {
     
-    var client: Client
-    var apikey: String
+    let client: Client
+    let apikey: String
     
     init(client: Client, apikey: String) {
         self.client = client
         self.apikey = apikey
     }
     
+    @Sendable
     func getPointToPoint(from: String, to: String, page: String, date: String) async throws -> PointToPoint {
         let response = try await client.getPointToPoint(query: .init(
             apikey: apikey,

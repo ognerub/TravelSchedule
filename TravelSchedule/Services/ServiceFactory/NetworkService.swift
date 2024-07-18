@@ -8,18 +8,23 @@
 import Foundation
 import OpenAPIURLSession
 
-actor NetworkService {
+protocol NetworkServiceProtocol: Sendable {
+    func createStationsListService() async -> StationsListService?
+    func createPointToPointService() async -> PointToPointService?
+}
+
+actor NetworkService: Sendable, NetworkServiceProtocol {
 
     func createStationsListService() async -> StationsListService? {
         guard let service = create(service: .stationsList) as? StationsListService else { return nil }
         return service
     }
-
+    
     func createPointToPointService() async -> PointToPointService? {
         guard let service = create(service: .pointToPoint) as? PointToPointService else { return nil }
         return service
     }
-
+    
     private func create(service: ServiceType) -> APIService? {
         guard let url = try? Servers.server1() else {
             print("error url")

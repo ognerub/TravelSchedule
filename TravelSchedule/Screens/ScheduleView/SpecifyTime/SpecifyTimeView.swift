@@ -21,21 +21,17 @@ struct SpecifyTimeView: View {
         ZStack {
             LazyVStack(alignment: .leading, spacing: 0, content: {
                 Section(content: {
-                    ToogleCheckBoxView(isOn: $isMorningFilterOn,
-                                       label: Localization.Schedule.SpecifyTimeView.morning + " 06:00 - 12:00")
-                    ToogleCheckBoxView(isOn: $isAfternoonFilterOn,
-                                       label: Localization.Schedule.SpecifyTimeView.afternoon + " 12:00 - 18:00")
-                    ToogleCheckBoxView(isOn: $isEveningFilterOn,
-                                       label: Localization.Schedule.SpecifyTimeView.evening + " 18:00 - 00:00")
-                    ToogleCheckBoxView(isOn: $isNightFilterOn,
-                                       label: Localization.Schedule.SpecifyTimeView.night  + " 00:00 - 06:00")
+                    ToogleCheckBoxView(label: Localization.Schedule.SpecifyTimeView.morning + " 06:00 - 12:00", isOn: $isMorningFilterOn)
+                    ToogleCheckBoxView(label: Localization.Schedule.SpecifyTimeView.afternoon + " 12:00 - 18:00", isOn: $isAfternoonFilterOn)
+                    ToogleCheckBoxView(label: Localization.Schedule.SpecifyTimeView.evening + " 18:00 - 00:00", isOn: $isEveningFilterOn)
+                    ToogleCheckBoxView(label: Localization.Schedule.SpecifyTimeView.night  + " 00:00 - 06:00", isOn: $isNightFilterOn)
                 }, header: {
                     CustomTextView(string: Localization.Schedule.SpecifyTimeView.departureTime, size: 24, weight: .bold, color: UIColor.blackDay)
                 })
                 .frame(height: 60)
                 Section(content: {
-                    ToogleCircleView(isOn: $isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.yes)
-                    ToogleCircleView(isOn: !$isTransfersFilterOn, label: Localization.Schedule.SpecifyTimeView.no)
+                    ToogleCircleView(label: Localization.Schedule.SpecifyTimeView.yes, isOn: $isTransfersFilterOn)
+                    ToogleCircleView(label: Localization.Schedule.SpecifyTimeView.no, isOn: !$isTransfersFilterOn)
                 }, header: {
                     CustomTextView(string: Localization.Schedule.SpecifyTimeView.showTransfers, size: 24, weight: .bold, color: UIColor.blackDay)
                 })

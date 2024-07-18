@@ -8,26 +8,23 @@
 import SwiftUI
 import RealmSwift
 
-class StationSelectionViewModel: ObservableObject {
+@MainActor
+final class StationSelectionViewModel: Sendable, ObservableObject {
 
     var selectedCity: RealmSettlement
-
-    @Published var searchText: String = ""
-
-    @ObservedResults(RealmSettlement.self) var settlements
-
     var filteredSettlement: Results<RealmSettlement> {
         settlements.filter("id = %@", selectedCity.id)
     }
-
     var filteredStations: [RealmStation] {
         let array = Array(filteredSettlement.flatMap { $0.stations })
         if searchText.isEmpty {
-            return array
+            return array.compactMap { $0 }
         } else {
             return array.filter { $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
+    @ObservedResults(RealmSettlement.self) var settlements
+    @Published var searchText: String = ""
 
     init(selectedCity: RealmSettlement) {
         self.selectedCity = selectedCity
@@ -50,31 +47,31 @@ class StationSelectionViewModel: ObservableObject {
     private func getDescription(station_type: String) -> String {
         switch station_type {
         case "airport":
-            return "Аэропорт"
+            return Localization.StationSelection.airport
         case "train_station":
-            return "Вокзал"
+            return Localization.StationSelection.trainStation
         case "marine_station":
-            return "Морской вокзал"
+            return Localization.StationSelection.marineStation
         case "river_port":
-            return "Речной вокзал"
+            return Localization.StationSelection.riverPort
         case "station":
-            return "Станция"
+            return Localization.StationSelection.station
         case "bus_station":
-            return "Автостанция"
+            return Localization.StationSelection.busStation
         case "bus_stop":
-            return "Автобусная остановка"
+            return Localization.StationSelection.busStop
         case "stop":
-            return "Остановка"
+            return Localization.StationSelection.stop
         case "platform":
-            return "Платформа"
+            return Localization.StationSelection.platform
         case "port":
-            return "Порт"
+            return Localization.StationSelection.port
         case "wharf":
-            return "Пристань"
+            return Localization.StationSelection.wharf
         case "post":
-            return "Пост"
+            return Localization.StationSelection.post
         case "unknown":
-            return ""
+            return Localization.StationSelection.unknown
         default:
             return station_type
         }

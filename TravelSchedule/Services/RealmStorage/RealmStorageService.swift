@@ -8,43 +8,33 @@
 import SwiftUI
 import RealmSwift
 
-protocol RealmStorageProtocol {
-    var сountries: [RealmCountry] { get set }
-    func checkIsRealmEmpty() -> Bool
-    func tryRealmWrite(responseCountries: [Countries])
-}
-
-final class RealmStorageService: RealmStorageProtocol {
-
-    var сountries = [RealmCountry]()
-    @ObservedResults(RealmCountry.self) var realmCountriesList // Realm
-
-    func checkIsRealmEmpty() -> Bool {
+@MainActor
+final class RealmStorageService: Sendable {
+    @ObservedResults(RealmCountry.self) var realmCountriesList
+    
+    func checkIsRealmEmpty() async -> Bool {
         var isRealmEmpty = true
         do {
             print("check Realm")
-            let realm = try Realm()
+            let realm = try await Realm()
             print("get Realm countries")
             let realmCountries = realm.objects(RealmCountry.self)
             if realmCountries.count > 0 {
                 print("Realm has \(realmCountries.count) countries")
                 isRealmEmpty = false
-                print("Create Realm token and convert countries")
-                self.сountries = realmCountries.map { $0 }
-                print("Convert from Realm over")
             }
         } catch {
             print("Realm read error: \(error)")
         }
         return isRealmEmpty
     }
-
-    func tryRealmWrite(responseCountries: [Countries]) {
+    
+    func tryRealmWrite(responseCountries: [Countries]) async {
         do {
-            let realm = try Realm()
+            let realm = try await Realm()
             try realm.write {
                 // COUNTRIES
-                PrintManager.shared.print("There is \(responseCountries.count) countries to write")
+                print("start write to Realm")
                 responseCountries.enumerated().forEach { (index, country) in
                     let realmCountry = RealmCountry()
                     realmCountry.title = country.title ?? ""
@@ -98,60 +88,10 @@ final class RealmStorageService: RealmStorageProtocol {
                         realmCountry.regions.append(realmRegion)
                     }
                     realm.add(realmCountry)
-                    PrintManager.shared.print("\(index)/\(responseCountries.count) over")
                 }
             }
         } catch {
             print("Realm write error: \(error.localizedDescription)")
         }
     }
-}
-
-class RealmStationCodes: EmbeddedObject {
-    @Persisted var yandex_code: String?
-    @Persisted var esr_code: String?
-}
-
-class RealmStation: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var title: String = ""
-    @Persisted var longitude: Double = 0.0
-    @Persisted var latitude: Double = 0.0
-    @Persisted var transport_type: String
-    @Persisted var station_type: String
-    @Persisted var direction: String
-    @Persisted var codes: RealmStationCodes?
-}
-
-class RealmSettlementCodes: EmbeddedObject {
-    @Persisted var yandex_code: String?
-}
-
-class RealmSettlement: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var title: String = ""
-    @Persisted var codes: RealmSettlementCodes?
-    @Persisted var stations = RealmSwift.List<RealmStation>()
-    @Persisted var stationsCount: Int = 0
-}
-
-class RealmRegionCodes: EmbeddedObject {
-    @Persisted var yandex_code: String?
-}
-
-class RealmRegion: Object {
-    @Persisted var title: String = ""
-    @Persisted var codes: RealmRegionCodes?
-    @Persisted var settlements = RealmSwift.List<RealmSettlement>()
-}
-
-class RealmCountryCodes: EmbeddedObject {
-    @Persisted var yandex_code: String?
-}
-
-class RealmCountry: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var title: String = ""
-    @Persisted var codes: RealmCountryCodes?
-    @Persisted var regions = RealmSwift.List<RealmRegion>()
 }

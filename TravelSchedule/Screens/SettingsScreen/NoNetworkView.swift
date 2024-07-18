@@ -7,16 +7,15 @@
 
 import SwiftUI
 
+enum NetworkErrorType {
+    case noInternet
+    case serverError
+}
+
 struct NoNetworkView: View {
     
-    enum NetworkErrorType {
-        case noInternet
-        case serverError
-    }
-
     let action: (() -> Void)?
-
-    @State var errorType: NetworkErrorType
+    let errorType: NetworkErrorType
     
     var body: some View {
         ZStack {
@@ -37,7 +36,7 @@ struct NoNetworkView: View {
             }
             .opacity(action != nil ? 1 : 0)
         }
-
+        
     }
     
     private func getTitle() -> String {

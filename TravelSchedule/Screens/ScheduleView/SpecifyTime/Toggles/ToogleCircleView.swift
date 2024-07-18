@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ToogleCircleView: View {
     
+    let label: String
     @Binding var isOn: Bool
-    @State var label: String
     
     var body: some View {
         Toggle(isOn: $isOn) {
@@ -24,9 +24,9 @@ struct ToogleCircleView: View {
 
 #Preview {
     struct ToogleCirclePreviewContainer : View {
-        @State var isOn: Bool = true
+        @State private var isOn: Bool = true
         var body: some View {
-            ToogleCircleView(isOn: $isOn, label: "Circle toogle")
+            ToogleCircleView(label: "Circle toogle", isOn: $isOn)
         }
     }
     return ToogleCirclePreviewContainer()

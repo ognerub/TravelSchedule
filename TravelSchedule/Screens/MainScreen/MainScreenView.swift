@@ -1,5 +1,5 @@
 //
-//  TabView.swift
+//  MainScreenView.swift
 //  TravelSchedule
 //
 //  Created by Alexander Ognerubov on 07.04.2024.
@@ -9,17 +9,18 @@ import SwiftUI
 
 struct MainScreenView: View {
 
-    @ObservedObject var viewModel: MainScreenViewModel
-    @State var selection = 0
+    @StateObject private var viewModel = MainScreenViewModel()
+    @AppStorage("appearanceSelection") private var appearanceSelection: Int = 0
+    @State private var selection: Int = 0
 
     var body: some View {
         NavigationStack(path: $viewModel.navPath) {
             ZStack {
                 TabView(selection: $selection) {
-                    ScheduleView(path: $viewModel.navPath)
+                    ScheduleView(networkService: viewModel.networkService, path: $viewModel.navPath)
                         .tabItem { Image(.scheduleTabIcon) }
                         .tag(0)
-                    SettingsView(appearanceSelection: $viewModel.appearanceSelection)
+                    SettingsScreenView(viewModel: SettingsViewModel(appearanceSelection: $appearanceSelection))
                         .tabItem { Image(.settingsTabIcon) }
                         .tag(1)
                 }
@@ -32,25 +33,33 @@ struct MainScreenView: View {
             }
             .tint(Color.init(UIColor.blackDay))
         }
-        .onAppear {
-            viewModel.getStations()
+        .task {
+            await viewModel.getStationsTask()
         }
         .sheet(isPresented: $viewModel.error, content: {
             NoNetworkView(action: {
                 viewModel.error = false
-                viewModel.getStations()
             }, errorType: .serverError)
         })
+        .preferredColorScheme(preferredColor(appearanceSelection: appearanceSelection))
+    }
+
+    private func preferredColor(appearanceSelection: Int) -> ColorScheme? {
+        var appearanceSwitch: ColorScheme? {
+            switch appearanceSelection {
+            case 1:
+                return .light
+            case 2:
+                return .dark
+            default:
+                return .none
+            }
+        }
+        return appearanceSwitch
     }
 }
 
 #Preview {
-    struct PreviewStruct: View {
-        @AppStorage("appearanceSelection") private var appearanceSelection: Int = 0
-        var body: some View {
-            MainScreenView(viewModel: MainScreenViewModel(appearanceSelection: $appearanceSelection), selection: 0)
-        }
-    }
-    return PreviewStruct()
+    MainScreenView()
 }
 

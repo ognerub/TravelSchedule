@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchButtonView: View {
+    
     var body: some View {
         Text(Localization.Schedule.SearchButtonView.search)
             .foregroundColor(Color.init(UIColor.whiteUniversal))

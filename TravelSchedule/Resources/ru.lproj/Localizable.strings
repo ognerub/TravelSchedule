@@ -12,6 +12,7 @@
 "Schedule.SearchButtonView.search" = "Поиск";
 "Schedule.SpecifyButtonView.filter" = "Уточнить время";
 "Schedule.transfer" = "С пересадкой в";
+"Schedule.loading" = "Загрузка...";
 
 /* MARK: City Selection */
 "CitySelection.Navigation.title" = "Выбор города";
@@ -24,6 +25,19 @@
 
 /* MARK: Station Selection */
 "StationSelection.Navigation.title" = "Выбор станции";
+"StationSelection.airport" = "Аэропорт";
+"StationSelection.train_station" = "Вокзал";
+"StationSelection.marine_station" = "Морской вокзал";
+"StationSelection.river_port" = "Речной вокзал";
+"StationSelection.station" = "Станция";
+"StationSelection.bus_station" = "Автостанция";
+"StationSelection.bus_stop" = "Автобусная остановка";
+"StationSelection.stop" = "Остановка";
+"StationSelection.platform" = "Платформа";
+"StationSelectionViewModel.port" = "Порт";
+"StationSelection.wharf" = "Пристань";
+"StationSelection.post" = "Пост";
+"StationSelection.unknown" = "Неизвестная";
 
 /* MARK: SpecifyTime */
 "Schedule.SpecifyTimeView.departureTime" = "Время отправления";
@@ -36,6 +50,9 @@
 "Schedule.SpecifyTimeView.no" = "Нет";
 "Schedule.SpecifyTimeView.apply" = "Применить";
 
+/* MARK: RoutesListView */
+"RoutesListView.noOptions" = "Нет вариантов";
+
 /* MARK: CarrierCardView */
 "CarrierCardView.Navigation.title" = "Информация о перевозчике";
 "CarrierCardView.empty" = "Не указано";
@@ -43,5 +60,6 @@
 /* MARK: SettingsView */
 "SettingsView.darkTheme" = "Темная тема";
 "SettingsView.userAgreement" = "Пользовательское соглашение";
-"SettingsView.apiUsage" = "Приложение использует API Яндекс.Расписания \n Версия 1.0 (бета)";
+"SettingsView.license" = "Приложение использует API Яндекс.Расписания \n Версия 1.0 (бета)";
+
 

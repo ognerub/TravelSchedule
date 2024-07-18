@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CarrierLogoView: View {
-    
-    let logoTurple: (URL?, LogoImageType)
 
+    let logoTurple: (URL?, LogoImageType)
+    
     var body: some View {
         HStack {
             Spacer()
@@ -18,7 +18,7 @@ struct CarrierLogoView: View {
                 SVGAsyncImage(url: logoTurple.0)
                     .frame(height: 104)
             } else {
-                AsyncImageView(url: logoTurple.0)
+                AsyncImageView(urlString: logoTurple.0?.absoluteString)
                     .frame(height: 104)
             }
             Spacer()

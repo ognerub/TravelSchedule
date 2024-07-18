@@ -9,11 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct AsyncImageView: View {
-    let url: URL?
+    let urlString: String?
 
     var body: some View {
         Group {
-            if let url = url {
+            if let urlString = urlString,
+                let url = URL(string: urlString) {
                 KFImage(url)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -25,5 +26,5 @@ struct AsyncImageView: View {
 }
 
 #Preview {
-    AsyncImageView(url: URL(string: ""))
+    AsyncImageView(urlString: "")
 }

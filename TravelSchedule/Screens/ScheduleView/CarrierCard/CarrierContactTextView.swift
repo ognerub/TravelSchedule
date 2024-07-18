@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CarrierContactTextView: View {
-    
-    @State var contactTitle: String
-    @State var contactValue: String
-    
+
+    let contactTitle: String
+    let contactValue: String
+
     var body: some View {
         VStack(alignment: .leading) {
             CustomTextView(string: contactTitle, size: 17, weight: .regular, color: UIColor.blackDay)

@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  SettingsScreenView.swift
 //  TravelSchedule
 //
 //  Created by Alexander Ognerubov on 15.04.2024.
@@ -7,15 +7,12 @@
 
 import SwiftUI
 import Network
+import WebKit
 
-struct SettingsView: View {
+struct SettingsScreenView: View {
     
-    @State private var isConnected = true
-    
-    @State var isDarkModeOn: Bool = false
-    @State var isProgressViewVisible: Bool = true
-    @Binding var appearanceSelection: Int
-    @StateObject var viewModel = WebView.ProgressViewModel(progress: 0.0)
+    @State private var isDarkModeOn: Bool = false
+    @ObservedObject var viewModel: SettingsViewModel
     
     var body: some View {
         VStack {
@@ -25,29 +22,21 @@ struct SettingsView: View {
             .tint(Color.init(uiColor: UIColor.blueUniversal))
             .frame(height: 60)
             .onChange(of: isDarkModeOn) { value in
-                value ? (appearanceSelection = 2) : (appearanceSelection = 1)
+                value ? (viewModel.appearanceSelection = 2) : (viewModel.appearanceSelection = 1)
             }
             NavigationLink(destination: {
-                if isConnected {
+                if viewModel.isConnected {
                     VStack {
-                        ProgressView(value: viewModel.progress)
-                            .progressViewStyle(.linear)
-                            .opacity(isProgressViewVisible ? 1 : 0)
                         if let urlString: URL = URL(string: "https://yandex.ru/legal/practicum_offer/") {
-                            WebView(url: urlString, viewModel: viewModel)
+                            WebView(url: urlString, webView: WKWebView())
                         }
                     }
                     .padding(.top, 88)
                     .ignoresSafeArea()
                     .navigationTitle(Localization.SettingsView.userAgreement)
                     .toolbarRole(.editor)
-                    .onChange(of: viewModel.progress, perform: { value in
-                        if value > 0.99 {
-                            isProgressViewVisible = false
-                        }
-                    })
                 } else {
-                    NoNetworkView(action: { }, errorType: .noInternet)
+                    NoNetworkView(action: nil, errorType: .noInternet)
                 }
             }, label: {
                 HStack {
@@ -60,24 +49,15 @@ struct SettingsView: View {
             .frame(height: 60)
             Spacer()
             CustomTextView(string: Localization.SettingsView.license, size: 12, weight: .regular, color: UIColor.blackDay)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
         }
         .padding(16)
         .onAppear {
-            checkInternetConnection()
-            if appearanceSelection > 1 { isDarkModeOn = true }
+            if viewModel.appearanceSelection > 1 { isDarkModeOn = true }
         }
-    }
-    
-    func checkInternetConnection() {
-        let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            DispatchQueue.main.async {
-                self.isConnected = (path.status == .satisfied)
-            }
+        .task {
+            viewModel.checkInternetConnection()
         }
-        let queue = DispatchQueue(label: "InternetMonitor")
-        monitor.start(queue: queue)
     }
 }

@@ -14,8 +14,8 @@ enum LogoImageType: String {
 }
 
 struct RouteCardView: View {
-    
-    @State var route: RouteModel
+
+    let route: RouteModel
     let logoTurple: (URL?, LogoImageType)
 
     var body: some View {
@@ -25,11 +25,12 @@ struct RouteCardView: View {
                     SVGAsyncImage(url: logoTurple.0)
                         .frame(width: 38, height: 38)
                 } else {
-                    AsyncImageView(url: logoTurple.0)
+                    AsyncImageView(urlString: logoTurple.0?.absoluteString)
                         .frame(width: 38, height: 38)
                 }
                 VStack(alignment: .leading) {
                     CustomTextView(string: route.companyTitle, size: 17, weight: .regular, color: UIColor.blackUniversal)
+                        .multilineTextAlignment(.leading)
                     CustomTextView(string: route.transfer, size: 12, weight: .regular, color: UIColor.redUniversal)
                 }
                 Spacer()

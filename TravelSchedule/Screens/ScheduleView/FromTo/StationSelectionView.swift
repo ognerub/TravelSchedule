@@ -19,7 +19,7 @@ struct StationSelectionView: View {
     var body: some View {
         List {
             ForEach(viewModel.filteredStations) { station in
-                
+
                 Button(action: {
                     if isFromStringWasSelected {
                         fromString.0 = viewModel.getFinalString(station: station)
@@ -50,10 +50,10 @@ struct StationSelectionView: View {
 
 #Preview {
     struct PreviewView: View {
-        @State var path = [String]()
-        @State var from = ("From", "")
-        @State var to = ("To", "")
-        @State var isFromStringWasSelected = false
+        @State private var path = [String]()
+        @State private var from = ("From", "")
+        @State private var to = ("To", "")
+        @State private var isFromStringWasSelected = false
         let selectedCity = RealmSettlement()
         var body: some View {
             StationSelectionView(viewModel: StationSelectionViewModel(selectedCity: selectedCity), path: $path, fromString: $from, toString: $to, isFromStringWasSelected: $isFromStringWasSelected)

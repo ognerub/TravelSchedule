@@ -41,8 +41,15 @@ public enum Localization {
         }
     }
 
+    public enum RoutesListView {
+        /// There are no options
+        public static let noOptions = localize("RoutesListView.noOptions")
+    }
+
     public enum Schedule {
-        /// With transfer in 
+        /// Loading...
+        public static let loading = localize("Schedule.loading")
+        /// With transfer in
         public static let transfer = localize("Schedule.transfer")
 
         public enum FromToView {
@@ -94,6 +101,32 @@ public enum Localization {
     }
 
     public enum StationSelection {
+        /// Airport
+        public static let airport = localize("StationSelection.airport")
+        /// Bus station
+        public static let busStation = localize("StationSelection.bus_station")
+        /// Bus stop
+        public static let busStop = localize("StationSelection.bus_stop")
+        /// Marine station
+        public static let marineStation = localize("StationSelection.marine_station")
+        /// Platform
+        public static let platform = localize("StationSelection.platform")
+        /// Port
+        public static let port = localize("StationSelection.port")
+        /// Post
+        public static let post = localize("StationSelection.post")
+        /// River port
+        public static let riverPort = localize("StationSelection.river_port")
+        /// Station
+        public static let station = localize("StationSelection.station")
+        /// Stop
+        public static let stop = localize("StationSelection.stop")
+        /// Train station
+        public static let trainStation = localize("StationSelection.train_station")
+        /// Unknown
+        public static let unknown = localize("StationSelection.unknown")
+        /// Wharf
+        public static let wharf = localize("StationSelection.wharf")
 
         public enum Navigation {
             /// Station selection

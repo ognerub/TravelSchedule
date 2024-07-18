@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ToogleCheckBoxView: View {
     
+    let label: String
     @Binding var isOn: Bool
-    @State var label: String
     
     var body: some View {
         Toggle(isOn: $isOn) {
@@ -24,9 +24,9 @@ struct ToogleCheckBoxView: View {
 
 #Preview {
     struct ToogleCheckBoxPreviewContainer : View {
-        @State var isOn: Bool = true
+        @State private var isOn: Bool = true
         var body: some View {
-            ToogleCheckBoxView(isOn: $isOn, label: "Afternoon")
+            ToogleCheckBoxView(label: "Afternoon", isOn: $isOn)
         }
     }
     return ToogleCheckBoxPreviewContainer()

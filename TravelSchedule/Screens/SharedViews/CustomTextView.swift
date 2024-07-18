@@ -13,12 +13,11 @@ struct CustomTextView: View {
     var size: CGFloat
     var weight: Font.Weight
     var color: UIColor
-
+    
     var body: some View {
         Text(string)
             .font(Font.system(size: size, weight: weight))
             .foregroundColor(Color(uiColor: color))
-            .multilineTextAlignment(.leading)
     }
 }
 

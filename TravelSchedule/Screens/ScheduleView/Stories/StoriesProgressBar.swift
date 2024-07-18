@@ -14,18 +14,18 @@ struct StoriesProgressBar: View {
     @Binding var currentProgress: CGFloat
     @State private var timer: Timer.TimerPublisher = .init(interval: 0.3, runLoop: .main, mode: .common)
     @State private var cancellable: Cancellable?
-
-  init(
-    storiesCount: Int,
-    timerConfiguration: TimerConfiguration,
-    currentProgress: Binding<CGFloat>
-  ) {
+    
+    init(
+        storiesCount: Int,
+        timerConfiguration: TimerConfiguration,
+        currentProgress: Binding<CGFloat>
+    ) {
         self.storiesCount = storiesCount
         self.timerConfiguration = timerConfiguration
         self._currentProgress = currentProgress
         self.timer = Self.makeTimer(configuration: timerConfiguration)
     }
-
+    
     var body: some View {
         ProgressBar(numberOfSections: storiesCount, progress: currentProgress)
             .padding(.init(top: 7, leading: 12, bottom: 12, trailing: 12))
@@ -40,7 +40,7 @@ struct StoriesProgressBar: View {
                 timerTick()
             }
     }
-
+    
     private func timerTick() {
         withAnimation {
             currentProgress = timerConfiguration.nextProgress(progress: currentProgress)

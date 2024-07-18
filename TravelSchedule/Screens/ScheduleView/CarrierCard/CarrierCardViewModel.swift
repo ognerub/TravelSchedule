@@ -15,6 +15,11 @@ struct CarrierCardModel: Hashable {
     let phone: String
 }
 
-class CarrierCardViewModel: ObservableObject {
+@MainActor
+final class CarrierCardViewModel: Sendable, ObservableObject {
+    let carrier: CarrierCardModel
 
+    init(carrier: CarrierCardModel) {
+        self.carrier = carrier
+    }
 }
