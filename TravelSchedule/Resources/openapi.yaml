@@ -110,6 +110,12 @@ paths:
           required: true
           schema:
             type: string
+        - name: transfers
+          in: query
+          description: Признак запроса маршрутов с пересадками
+          required: false
+          schema:
+            type: boolean
       responses:
         '200':
           description: success
@@ -406,26 +412,209 @@ components:
               type: integer
             offset:
               type: integer
-        schedules:
+        search:
+          type: object
+          properties:
+            from:
+              type: object
+              properties:
+                code:
+                  type: string
+                title:
+                  type: string
+                station_type:
+                  type: string
+                station_type_name:
+                  type: string
+                popular_title:
+                  type: string
+                short_title:
+                  type: string
+                transport_type:
+                  type: string
+                type:
+                  type: string
+            to:
+              type: object
+              properties:
+                code:
+                  type: string
+                title:
+                  type: string
+                station_type:
+                  type: string
+                station_type_name:
+                  type: string
+                popular_title:
+                  type: string
+                short_title:
+                  type: string
+                transport_type:
+                  type: string
+                type:
+                  type: string
+        segments:
           type: array
           items:
             type: object
             properties:
-              arrival:
-                type: string
-                format: date-time
-              departure:
-                type: string
-                format: date-time
               thread:
                 type: object
                 properties:
-                  uid:
+                  number:
                     type: string
                   title:
                     type: string
-                  number:
+                  short_title:
                     type: string
+                  transport_type:
+                    type: string
+                  uid:
+                    type: string
+                  vehicle:
+                    type: string
+                  thread_method_link:
+                    type: string
+                  transport_subtype:
+                    type: object
+                    properties:
+                     title:
+                       type: string
+                     code:
+                       type: string
+                     color:
+                       type: string
+                  carrier:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                      title:
+                        type: string
+                      address:
+                        type: string
+                      url:
+                        type: string
+                      email:
+                        type: string
+                      contacts:
+                        type: string
+                      phone:
+                        type: string
+                      logo:
+                        type: string
+                      logo_svg:
+                        type: string
+                      codes:
+                        type: object
+                        properties:
+                          sirena:
+                            type: string
+                          iata:
+                            type: string
+                          icao:
+                            type: string
+              from:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  title:
+                    type: string
+                  station_type:
+                    type: string
+                  station_type_name:
+                    type: string
+                  popular_title:
+                    type: string
+                  short_title:
+                    type: string
+                  transport_type:
+                    type: string
+                  type:
+                    type: string
+              to:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  title:
+                    type: string
+                  station_type:
+                    type: string
+                  station_type_name:
+                    type: string
+                  popular_title:
+                    type: string
+                  short_title:
+                    type: string
+                  transport_type:
+                    type: string
+                  type:
+                    type: string
+              start_date:
+                type: string
+              stops:
+                type: string
+              duration:
+                type: integer
+              departure:
+                type: string
+              arrival:
+                type: string
+              departure_platform:
+                type: string
+              arrival_platform:
+                type: string
+              departure_terminal:
+                type: string
+              arrival_terminal:
+                type: string
+              has_transfers:
+                type: boolean
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    from:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        popular-title:
+                          type: string
+                    to:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        popular-title:
+                          type: string
+                    departure:
+                      type: string
+                    arrival:
+                      type: string
+                    duration:
+                      type: integer
+                    start_date:
+                      type: string
+                    thread:
+                     type: object
+                     properties:
+                       number:
+                         type: string
+                       title:
+                         type: string
+                       short_title:
+                         type: string
+                       carrier:
+                         type: object
+                         properties:
+                           code:
+                             type: integer
+                           title:
+                             type: string
 # MARK: - ScheduleOnStation
     ScheduleOnStation:
       type: object
@@ -773,6 +962,9 @@ components:
                             type: string
                           codes:
                             type: object
+                            properties:
+                              yandex_code:
+                                type: string
                           stations:
                             type: array
                             items:
@@ -784,6 +976,8 @@ components:
                                   type: object
                                   properties:
                                     yandex_code:
+                                      type: string
+                                    esr_code:
                                       type: string
                                 station_type:
                                   type: string
@@ -803,6 +997,9 @@ components:
                                   nullable: true
                     codes:
                       type: object
+                      properties:
+                        yandex_code:
+                          type: string
                     title:
                       type: string
               codes:

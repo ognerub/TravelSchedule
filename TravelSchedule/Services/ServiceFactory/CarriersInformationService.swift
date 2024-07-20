@@ -16,15 +16,15 @@ protocol CarriersInformationServiceProtocol {
 }
 
 final class CarriersInformationService: CarriersInformationServiceProtocol, APIService {
-    
+
     var client: Client
     var apikey: String
-    
+
     init(client: Client, apikey: String) {
         self.client = client
         self.apikey = apikey
     }
-    
+
     func getCarriersInformation(code: String, system: String) async throws -> CarriersInformation {
         let response = try await client.getCarriers(
             query: .init(
@@ -37,6 +37,3 @@ final class CarriersInformationService: CarriersInformationServiceProtocol, APIS
         return try response.ok.body.json
     }
 }
-
-
-
