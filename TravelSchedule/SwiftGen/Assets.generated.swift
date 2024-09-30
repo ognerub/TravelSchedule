@@ -4,14 +4,10 @@ import UIKit
 
 // MARK: - Images
 public extension UIImage {
-  static let arrowRight: UIImage = UIImage(named: "arrowRight") ?? UIImage()
-  static let change: UIImage = UIImage(named: "change") ?? UIImage()
-  static let close: UIImage = UIImage(named: "close") ?? UIImage()
-  static let scheduleTabIcon: UIImage = UIImage(named: "scheduleTabIcon") ?? UIImage()
-  static let settingsTabIcon: UIImage = UIImage(named: "settingsTabIcon") ?? UIImage()
   static let fgk: UIImage = UIImage(named: "fgk") ?? UIImage()
   static let rzhd: UIImage = UIImage(named: "rzhd") ?? UIImage()
   static let url: UIImage = UIImage(named: "url") ?? UIImage()
+  static let splashScreen: UIImage = UIImage(named: "SplashScreen") ?? UIImage()
   static let bs1: UIImage = UIImage(named: "bs1") ?? UIImage()
   static let bs10: UIImage = UIImage(named: "bs10") ?? UIImage()
   static let bs11: UIImage = UIImage(named: "bs11") ?? UIImage()
@@ -39,9 +35,13 @@ public extension UIImage {
   static let sp7: UIImage = UIImage(named: "sp7") ?? UIImage()
   static let sp8: UIImage = UIImage(named: "sp8") ?? UIImage()
   static let sp9: UIImage = UIImage(named: "sp9") ?? UIImage()
+  static let scheduleTabIcon: UIImage = UIImage(named: "ScheduleTabIcon") ?? UIImage()
+  static let settingsTabIcon: UIImage = UIImage(named: "SettingsTabIcon") ?? UIImage()
+  static let arrowRight: UIImage = UIImage(named: "arrowRight") ?? UIImage()
+  static let change: UIImage = UIImage(named: "change") ?? UIImage()
+  static let close: UIImage = UIImage(named: "close") ?? UIImage()
   static let noInternet: UIImage = UIImage(named: "noInternet") ?? UIImage()
   static let serverError: UIImage = UIImage(named: "serverError") ?? UIImage()
-  static let splashScreen: UIImage = UIImage(named: "splashScreen") ?? UIImage()
 }
 
 // MARK: - Colors

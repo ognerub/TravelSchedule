@@ -34,9 +34,7 @@ final class NearestSettlementService: NearestSettlementServiceProtocol, APIServi
                 lng: lng,
                 distance: distance,
                 lang: "ru_RU"
-        ))
+            ))
         return try response.ok.body.json
     }
 }
-
-

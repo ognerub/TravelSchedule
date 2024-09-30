@@ -36,4 +36,3 @@ final class ThreadInformationService: ThreadInformationServiceProtocol, APIServi
         return try response.ok.body.json
     }
 }
-

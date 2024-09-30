@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RouteModel: Identifiable {
     let id: UUID
-    let logo: String
-    let company: String
+    let logo: (String, LogoImageType)
     let transfer: String
     let date: String
     let startTime: String
     let endTime: String
     let duration: String
+    let companyTitle: String
+    let companyPhone: String
+    let companyEmail: String
 }
